@@ -20,7 +20,9 @@
 * カフェのおすすめを共有したい時
 
 ## 設計書
-<...>
+### ER図
+
+![cafe-chercher drawio (1)](https://user-images.githubusercontent.com/109025282/192950289-77c13c42-8c79-43e9-8789-45f2360ade9c.png)
 
 ## 開発環境
 - OS：Linux(CentOS)
