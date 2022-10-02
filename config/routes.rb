@@ -1,42 +1,41 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'comments/index'
-  end
-  namespace :admin do
-    get 'users/index'
-    get 'users/show'
-  end
-  namespace :admin do
-    get 'post_tags/new'
-    get 'post_tags/edit'
-  end
-  namespace :admin do
-    get 'posts/index'
-    get 'posts/show'
-  end
-  namespace :public do
-    get 'posts/new'
-    get 'posts/index'
-    get 'posts/show'
-    get 'posts/edit'
-  end
-  namespace :public do
-    get 'users/show'
-    get 'users/edit'
-    get 'users/unsubscribe'
-  end
-  namespace :public do
-    get 'homes/top'
-    get 'homes/about'
-  end
-#ユーザ用
+  #ユーザ用 新規登録・ログイン
   devise_for :users, skip: [:passwords], controllers: {
     registrations: 'public/registrations',
     sessions: 'public/sessions'
   }
 
-#管理者用
+  #管理者用　ログイン
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
+
+  # 管理者
+  namespace :admin do
+    resources :users, only: [:show, :index,:destroy] do
+      resources :posts, only: [:show, :index, :destroy]
+      resources :comments, only: [:index, :destroy]
+    end
+    resources :post_tags, except:[:show, :index]
+  end
+
+	# ユーザ
+  scope module: :public do
+    get "about" => "homes#about"
+    resources :users, only: [:show, :edit, :update]
+    # 投稿機能
+    resources :posts do
+      #コメント・お気に入り機能
+      resources :comments, only: [:create, :destroy]
+      resource :likes, only: [:create, :destroy]
+    end
+    # ユーザの退会確認ページ
+    get "user/unsubscribe" => "users#unsubscribe"
+    #ユーザ退会処理
+    patch "user/withdraw" => "users#withdraw"
+    #下書き機能
+    get "draft_index" => "posts#draft_index"
+  end
+
+  root to: 'public/homes#top'
 end
