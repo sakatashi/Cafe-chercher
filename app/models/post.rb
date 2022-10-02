@@ -4,8 +4,7 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
-  
-  enum : { published: 0, draft: 1 }
-  
+
+   enum is_draft: { published: 0, draft: 1 }
   has_one_attached :image
 end
