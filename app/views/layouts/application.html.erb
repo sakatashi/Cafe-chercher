@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+    <head>
     <title>CafeChercher</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -11,6 +11,7 @@
   </head>
 
   <body>
-    <%= yield %>
+     <%= render 'layouts/header' %>
+      <%= yield %>
   </body>
 </html>
