@@ -11,6 +11,8 @@ class Public::PostsController < ApplicationController
   end
   
   def index
+  @posts = Post.all
+  @post = Post.new
   @posts = Post.where(is_draft: :published).order(params[:sort]).page(params[:page]).per(12)
   end
 
@@ -34,6 +36,6 @@ class Public::PostsController < ApplicationController
  
   private
   def post_params
-  params.require(:post).permit(:user_id, :title, :content, :shop_name, :shop_place, :shop_holiday, :shop_price, :is_draft)
+  params.require(:post).permit(:user_id, :title, :content, :shop_name, :shop_place, :shop_holiday, :shop_price, :is_draft,:image)
   end
 end
