@@ -1,2 +1,27 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-lg-5 my-4">
+      <h4>投稿詳細</h4>
+      <div class="container customize-border shadow bg-white mb-5 py-3">
+        <p>店舗名：<strong><%= @post.shop_name %></strong></p>
+          <%= image_tag @post.get_image(400,300)%>
+        <h5><strong><%= @post.title %></strong></h5>
+        <p><%= @post.content %></p>
+        <table class="table">
+          <tr>
+            <th>アクセス</th>
+            <td><%= @post.shop_place %></td>
+          </tr>
+          <tr>
+            <th>平均予算</th>
+            <td><%= @post.shop_price %>円</td>
+          </tr>
+          <tr>
+            <th>定休日</th>
+            <td><%= @post.shop_holiday %></td>
+          </tr>
+         </table>
+      </div>
+    </div>
+  </div>
+</div>

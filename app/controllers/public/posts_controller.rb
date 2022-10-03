@@ -11,12 +11,14 @@ class Public::PostsController < ApplicationController
   end
   
   def index
-  @posts = Post.all
-  @post = Post.new
-  @posts = Post.where(is_draft: :published).order(params[:sort]).page(params[:page]).per(12)
+    @posts = Post.all
+    @post = Post.new
+    @posts = Post.where(is_draft: :published).order(params[:sort]).page(params[:page]).per(12)
   end
 
   def show
+    @post = Post.find(params[:id])
+  
   end
 
   def edit
