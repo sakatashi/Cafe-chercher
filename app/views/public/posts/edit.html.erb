@@ -1,2 +1,40 @@
-<h1>Public::Posts#edit</h1>
-<p>Find me in app/views/public/posts/edit.html.erb</p>
+<div class="container">
+  <div class="row justify-content-md-center">
+     <div class="col-md-auto">
+       <i class="bi bi-cup-hot-fill"></i><h4>編集する</h4>
+       <%= form_with model: @post, url: post_path do |f|%>
+
+       <%= f.label :image,"画像を選択する" %>
+       <%= f.file_field :image,accept: 'image/*' %><br>
+
+       <%= f.label :title,"タイトル" %>
+       <%= f.text_field :title, placeholder: "タイトルを入力" %><br>
+
+       <%= f.label :content,"本文" %>
+       <%= f.text_area :content, placeholder: "本文を入力" %><br>
+
+       <%= f.label :shop_name,"カフェ名" %>
+       <%= f.text_field :shop_name, placeholder: "カフェ名を入力" %><br>
+
+       <%= f.label :shop_place,"アクセス" %>
+       <%= f.text_field :shop_place %><br>
+
+        <%= f.label :shop_holiday,"定休日" %>
+        <%= f.text_field :shop_holiday %><br>
+
+        <%= f.label :shop_price,"平均予算" %>
+        <%= f.text_field :shop_price%>円<br>
+
+        <div class="form-group">
+        <%= f.select :is_draft, Post.is_drafts.keys.map { |k| [t("enums.post.is_draft.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
+        </div><br>
+        <div>
+        <%= f.submit '変更する', class: "btn btn-success w-25" %>
+        <% end %>
+        <% if @post.user == current_user %>
+         <%= link_to '削除', @post, method: :delete, data: {confirm: "投稿を削除します。よろしいですか？"},class: 'btn btn-danger w-25'%>
+         <% end %>
+        </div>
+        </div>
+       </div>
+      </div>
