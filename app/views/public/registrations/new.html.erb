@@ -4,7 +4,7 @@
       <%= render "public/shared/error_messages", resource: resource %>
     </div>
     <div>
-      <h4>新規登録</h4>
+      <h4 class="text-center"><i class="fas fa-user-plus"></i> 新規登録</h4>
       <%= form_with model: resource, url: user_registration_path do |f| %>
         <div class="field">
           <%= f.label :名前 %><br />
@@ -30,6 +30,7 @@
           <%= f.submit "新規登録", class: "btn btn-success" %>
         </div>
       <% end %>
+      <p>登録済みの方</p>
       <%= render "public/shared/links" %>
     </div>
   </div>
