@@ -12,6 +12,7 @@
          <p><%= post.title %></p>
          <p><%= post.shop_name %></p>
          <p><%= post.shop_place %></p>
+         <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
            </li>
           </ul>
           <% end %>
