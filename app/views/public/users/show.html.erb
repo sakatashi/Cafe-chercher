@@ -1,5 +1,5 @@
 <div class="container">
-  <h4><%= @user.name %>のマイページ</h4>
+  <h4 class="my-5"><%= @user.name %>のマイページ</h4>
   <div class="row">
     <div class="col-4">
       <%= image_tag @user.get_image(100,100)%>
@@ -13,21 +13,14 @@
             <td><%= @user.email %></td>
           </tr>
           <tr>
-            <th>パスワード</th>
-            <td><%= @user.password %></td>
-          </tr>
-          <tr>
             <th>自己紹介</th>
             <td><%= @user.introduction %></td>
           </tr>
-          <tr>
-            <th><%= link_to '編集', edit_user_path, class: 'btn btn-outline-primary'%></th>
-            <td><%= link_to '退会する',user_unsubscribe_path,class: 'btn btn-outline-secondary'%></td>
-          </tr>
       </table>
+      <%= link_to '編集', edit_user_path, class: 'btn btn-outline-primary w-100'%>
     </div>
     <div class="col-8">
-      <h4><%= @user.name %>さんの投稿</h4>
+      <h5><%= @user.name %>さんの投稿</h5>
       <% if @post.user == current_user %>
       <p>店舗名：<strong><%= @post.shop_name %></strong></p>
         <%= image_tag @post.get_image(400,300)%>

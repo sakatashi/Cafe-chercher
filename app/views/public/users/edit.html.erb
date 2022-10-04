@@ -1,2 +1,23 @@
-<h1>Public::Users#edit</h1>
-<p>Find me in app/views/public/users/edit.html.erb</p>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-auto">
+      <h5 class="text-center"><i class="fas fa-pencil-alt"></i>編集する</h5>
+        <%= form_with model: @user, url: user_path do |f|%>
+        <%= f.label :image,"アイコン設定" %>
+       <%= f.file_field :image,accept: 'image/*' %><br>
+
+        <%= f.label :name,"名前" %>
+        <%= f.text_field :name %><br>
+
+        <%= f.label :email,"メールアドレス" %>
+        <%= f.text_field :email, placeholder: "メールアドレスを入力" %><br>
+
+        <%= f.label :introduction,"自己紹介" %>
+        <%= f.text_area :introduction, placeholder: "自己紹介を入力" %><br>
+
+        <%= f.submit '変更する', class: "btn btn-success" %>
+　　　　<%= link_to '退会する',user_unsubscribe_path,class: 'btn btn-outline-secondary'%>
+        <% end %>
+    </div>
+  </div>
+</div>
