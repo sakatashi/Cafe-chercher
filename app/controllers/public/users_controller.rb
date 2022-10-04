@@ -19,6 +19,10 @@ class Public::UsersController < ApplicationController
   end
 
   def withdraw
+    @user = User.find(current_user.id)
+    @user.update(status: true)
+    reset_session
+    redirect_to root_path
   end
 
    private
