@@ -20,8 +20,12 @@
             <th>定休日</th>
             <td><%= @post.shop_holiday %></td>
           </tr>
-         </table>
+        </table>
+          <!--いいね機能--
+          <%= render 'public/likes/btn', post: @post %>
+           <% if @post.user == current_user %>
            <%= link_to '編集', edit_post_path, class: 'btn btn-primary mr-3'%>
+          <% end %>
       </div>
     </div>
   </div>
