@@ -21,29 +21,27 @@
             <td><%= @post.shop_holiday %></td>
           </tr>
           <tr id="post_<%= @post.id %>"> <!--いいね機能-->
-          <th></th>
-          <td class="like-btn"><%= render 'public/likes/btn', post: @post %></td>
+            <th></th>
+              <td class="like-btn"><%= render 'public/likes/btn', post: @post %></td>
+              <td>
+              <% if @post.user == current_user %>
+              <%= link_to '編集', edit_post_path, class: 'btn btn-primary mr-3'%>
+              <% end %>
+              </td>
+              <td></td>
           </tr>
         </table>
-
-           <% if @post.user == current_user %>
-           <%= link_to '編集', edit_post_path, class: 'btn btn-primary mr-3'%>
-          <% end %>
       </div>
       <div class="container customize-border shadow">
-      <p>コメント<i class="far fa-comment-alt"></i>　<%= @post.comments.count %></p>
-        <% @post.comments.each do |comment| %>
-        <%= comment.user.name %>さん
-        <%= comment.comment %>
-         <%= comment.created_at.strftime('%Y/%m/%d') %>
-        <% if comment.user == current_user %>
-        <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete %><br>
-          <% end %>
-        <% end %>
-        <%= form_with model: [@post, @comment] do |f| %>
-        <%= f.text_area :comment, placeholder: "コメントをここに",style:"width:300px; height:150px; resize:none;"  %><br>
-        <%= f.submit "送信する",class: 'btn btn-success' %>
-          <% end %>
+        <!--コメントフォーム-->
+       <div class="new-comment">
+        <%= render 'public/comments/form',post: @post %>
+        </div>
+        <!--コメント一覧部分-->
+        <div class="comments_area">
+        <%= render 'public/comments/index', post: @post%>
+        </div>
       </div>
+    </div>
   </div>
 </div>
