@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-md-center">
-    <div class="col-lg-5 my-4">
+    <div class="col-lg-6 my-4">
       <h4>投稿詳細</h4>
       <div class="container customize-border shadow bg-white mb-5 py-3">
         <p>店舗名：<strong><%= @post.shop_name %></strong></p>
@@ -30,18 +30,18 @@
            <%= link_to '編集', edit_post_path, class: 'btn btn-primary mr-3'%>
           <% end %>
       </div>
-      <div class="container customize-border shadow bg-white mb-5 py-3">
-      <i class="far fa-comment-alt"></i><%= @post.comments.count %>
+      <div class="container customize-border shadow">
+      <p>コメント<i class="far fa-comment-alt"></i>　<%= @post.comments.count %></p>
         <% @post.comments.each do |comment| %>
-        <%= comment.user.name %>
-        <%= comment.created_at.strftime('%Y/%m/%d') %>
+        <%= comment.user.name %>さん
         <%= comment.comment %>
+         <%= comment.created_at.strftime('%Y/%m/%d') %>
         <% if comment.user == current_user %>
-        <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete %>
+        <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete %><br>
           <% end %>
         <% end %>
         <%= form_with model: [@post, @comment] do |f| %>
-        <%= f.text_area :comment, placeholder: "コメントをここに" %><br>
+        <%= f.text_area :comment, placeholder: "コメントをここに",style:"width:300px; height:150px; resize:none;"  %><br>
         <%= f.submit "送信する",class: 'btn btn-success' %>
           <% end %>
       </div>
