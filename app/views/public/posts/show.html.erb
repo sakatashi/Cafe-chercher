@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-md-center">
-    <div class="col-lg-5 my-4">
+    <div class="col-lg-6 my-4">
       <h4>投稿詳細</h4>
       <div class="container customize-border shadow bg-white mb-5 py-3">
         <p>店舗名：<strong><%= @post.shop_name %></strong></p>
@@ -21,14 +21,26 @@
             <td><%= @post.shop_holiday %></td>
           </tr>
           <tr id="post_<%= @post.id %>"> <!--いいね機能-->
-          <th></th>
-          <td class="like-btn"><%= render 'public/likes/btn', post: @post %></td>
+            <th></th>
+              <td class="like-btn"><%= render 'public/likes/btn', post: @post %></td>
+              <td>
+              <% if @post.user == current_user %>
+              <%= link_to '編集', edit_post_path, class: 'btn btn-primary mr-3'%>
+              <% end %>
+              </td>
+              <td></td>
           </tr>
         </table>
-         
-           <% if @post.user == current_user %>
-           <%= link_to '編集', edit_post_path, class: 'btn btn-primary mr-3'%>
-          <% end %>
+      </div>
+      <div class="container customize-border shadow">
+        <!--コメントフォーム-->
+       <div class="new-comment">
+        <%= render 'public/comments/form',post: @post %>
+        </div>
+        <!--コメント一覧部分-->
+        <div class="comments_area">
+        <%= render 'public/comments/index', post: @post%>
+        </div>
       </div>
     </div>
   </div>
