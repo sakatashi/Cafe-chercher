@@ -1,0 +1,12 @@
+ <div class="col-8">
+   <h5><%= user.name %>さんの投稿(<%= @posts.count %>件)</h5>
+      <% if post.user == current_user %>
+        <p>店舗名：<strong><%= posts.shop_name %></strong></p>
+        <%= image_tag post.get_image(400,300)%>
+        <h5><strong><%= post.title %></strong></h5>
+        <p><%= post.content %></p>
+         <%= link_to '編集', edit_post_path, class: 'btn btn-primary mr-3'%>
+      <% else %>
+        <h6>投稿はありません</h6>
+      <% end %>
+  </div>
