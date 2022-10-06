@@ -1,0 +1,20 @@
+  <div class="col-4">
+    <%= image_tag user.get_image(100,100)%>
+    <table class="table">
+      <tr>
+        <th style="width: 40%">名前</th>
+          <td><%= user.name %></td>
+      </tr>
+      <tr>
+        <th style="width: 40%">メールアドレス</th>
+          <td><%= user.email %></td>
+      </tr>
+      <tr>
+        <th>自己紹介</th>
+          <td><%= user.introduction %></td>
+      </tr>
+    </table>
+      <% if user.name != "guestuser" %>
+      <%= link_to '編集', edit_user_path, class: 'btn btn-outline-primary w-100'%>
+      <% end %>
+  </div>
