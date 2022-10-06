@@ -1,0 +1,18 @@
+<div class ="container" >
+  <div class="row">
+    <div class="col-6 my-3">
+    
+      <h5 class="text-center"><%= @user.name %>さんのいいねした投稿</h5>
+        <% @like_posts.each do |post|%>
+       <ul style="list-style: none;">
+      <li class = "cafe_list">
+      <div class="container  shadow bg-white mb-5 py-3">
+       <%= link_to post_path(post.id) do %>
+        <%= image_tag post.get_image(124,124)%>
+        <% end %>
+         <p><%= post.title %></p>
+         <p><%= post.shop_name %></p>
+        </li>
+        </ul>
+<% end %>
+</div>

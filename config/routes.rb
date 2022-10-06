@@ -28,7 +28,11 @@ Rails.application.routes.draw do
 	# ユーザ
   scope module: :public do
     get "about" => "homes#about"
-    resources :users, only: [:show, :edit, :update]
+    resources :users, only: [:show, :edit, :update] do
+      member do
+      get :likes
+    end
+  end
     # 投稿機能
     resources :posts do
       #コメント・お気に入り機能
