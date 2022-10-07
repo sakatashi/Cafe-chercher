@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   # 管理者
   namespace :admin do
-    resources :users, only: [:show, :index,:destroy] do
+    resources :users, except: [:new, :create, :destroy]do
       resources :posts, only: [:show, :index, :destroy]
       resources :comments, only: [:index, :destroy]
     end

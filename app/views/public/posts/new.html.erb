@@ -23,7 +23,7 @@
         <%= f.text_field :shop_holiday %><br>
 
         <%= f.label :shop_price,"平均予算" %>
-        <%= f.text_field :shop_price%>円<br>
+        <%= f.text_field :shop_price %>円<br>
 
         <div class="form-group">
         <%= f.select :is_draft, Post.is_drafts.keys.map { |k| [t("enums.post.is_draft.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
