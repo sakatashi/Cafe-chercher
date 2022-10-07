@@ -6,8 +6,11 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.save
-    redirect_to posts_path
+    if @post.save
+      redirect_to posts_path, notice:'投稿しました'
+    else
+      render 'new', '入力内容をご確認ください。'
+    end
   end
 
   def index
@@ -42,6 +45,8 @@ class Public::PostsController < ApplicationController
   end
 
   def tag
+    @tag = Tag.find_by(name: params[:name])
+    @post = @tag.posts
   end
 
   private

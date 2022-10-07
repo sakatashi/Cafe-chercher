@@ -47,6 +47,8 @@ Rails.application.routes.draw do
     get "draft_index" => "posts#draft_index"
     #キーワード検索
     get 'search' => 'searches#search'
+    # タグ検索結果ページ
+    get "post/tag/:name" => "posts#tag"
   end
 
   root to: 'public/homes#top'
