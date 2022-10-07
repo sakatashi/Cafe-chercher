@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2022_10_02_103049) do
     t.text "content"
     t.string "shop_name"
     t.string "shop_place"
-    t.string "shop_holiday"
+    t.integer "shop_holiday"
     t.string "shop_price"
     t.integer "is_draft", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
