@@ -45,6 +45,8 @@ Rails.application.routes.draw do
     patch "user/withdraw" => "users#withdraw"
     #下書き機能
     get "draft_index" => "posts#draft_index"
+    #キーワード検索
+    get 'search' => 'searches#search'
   end
 
   root to: 'public/homes#top'

@@ -1,0 +1,14 @@
+   <% posts.each do |post| %>
+          <ul style="list-style: none;">
+           <li>
+      <div class="container customize-border shadow bg-white mb-5 py-3">
+        <%= link_to post_path(post.id) do %>
+        <%= image_tag post.get_image(124,124)%>
+        <% end %>
+         <p><%= post.title %></p>
+         <p><%= post.shop_name %></p>
+         <p><%= post.shop_place %></p>
+         <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
+           </li>
+          </ul>
+          <% end %>
