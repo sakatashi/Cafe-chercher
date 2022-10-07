@@ -33,13 +33,13 @@
         </table>
       </div>
       <div class="container customize-border shadow">
-        <!--コメントフォーム-->
-       <div class="new-comment">
-        <%= render 'public/comments/form',post: @post %>
-        </div>
         <!--コメント一覧部分-->
         <div class="comments_area">
         <%= render 'public/comments/index', post: @post%>
+        </div>
+        <!--コメントフォーム-->
+       <div class="new-comment">
+        <%= render 'public/comments/form',post: @post %>
         </div>
       </div>
     </div>
