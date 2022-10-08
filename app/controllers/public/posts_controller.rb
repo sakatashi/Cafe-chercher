@@ -7,7 +7,7 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      if @post.publish == true
+      if @post.is_draft == true
         redirect_to posts_path, notice: "投稿しました。"
       else
         redirect_to posts_path, notice: "マイページの「下書き投稿」に保存しました。"
@@ -37,7 +37,7 @@ class Public::PostsController < ApplicationController
     if current_user == @post.user
       if @post.update(post_params)
         if @post.is_draft == true
-          redirect_to post_path(@post.id), notice: "更新しました。"
+          redirect_to post_path, notice: "更新しました。"
         else
           redirect_to post_path(@post),
           notice: "マイページの「下書き投稿」に保存しました。"
