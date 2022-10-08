@@ -7,9 +7,13 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      redirect_to posts_path, notice:'投稿しました'
+      if @post.is_draft == true
+        redirect_to posts_path, notice: "投稿しました。"
+      else
+        redirect_to posts_path, notice: "マイページの「下書き投稿」に保存しました。"
+      end
     else
-      render 'new', '入力内容をご確認ください。'
+      redirect_to new_post_path(@post), alert: "入力内容をご確認ください。"
     end
   end
 
@@ -30,20 +34,37 @@ class Public::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    redirect_to post_path(@post.id)
+    if current_user == @post.user
+      if @post.update(post_params)
+        if @post.is_draft == true
+          redirect_to post_path, notice: "更新しました。"
+        else
+          redirect_to post_path(@post),
+          notice: "マイページの「下書き投稿」に保存しました。"
+        end
+      else
+        redirect_to edit_post_path(@post), alert: "編集内容をご確認ください。"
+      end
+    else
+      redirect_to posts_path, alert: "本人以外更新できません。"
+    end
   end
 
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to posts_path
+    if current_user == @post.user
+      @post.destroy
+      redirect_to posts_path, notice: "投稿を削除しました。"
+    else
+      redirect_to posts_path, alert: "本人以外は投稿を削除できません。"
+    end
   end
 
+#非公開ページ
   def draft_index
     @posts = current_user.posts.draft
   end
-
+  # タグ検索結果ページ
   def tag
     @tag = Tag.find_by(name: params[:name])
     @post = @tag.posts
