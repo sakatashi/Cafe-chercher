@@ -14,8 +14,9 @@
           <td><%= user.introduction %></td>
       </tr>
     </table>
-    <p><%=link_to"いいねした投稿を見る",likes_user_path(@user),class:'btn btn-outline-success w-100' %></p>
+    <p><%=link_to"いいねした投稿を見る",likes_user_path(user),class:'btn btn-outline-success w-100' %></p>
+    <p><%=link_to"下書き投稿を見る",draft_index_path(user),class:'btn btn-outline-info w-100'%></p>
       <% if user.name != "guestuser" %>
       <%= link_to '編集', edit_user_path, class: 'btn btn-outline-primary w-100'%>
       <% end %>
-  </div>
+</div>
