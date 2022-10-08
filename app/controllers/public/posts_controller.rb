@@ -14,9 +14,8 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.published
     @post = Post.new
-    @posts = Post.where(is_draft: :published).order(params[:sort]).page(params[:page]).per(12)
   end
 
   def show
@@ -42,6 +41,7 @@ class Public::PostsController < ApplicationController
   end
 
   def draft_index
+    @posts = current_user.posts.draft
   end
 
   def tag
