@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-6 my-3">
     
-      <h5 class="text-center"><%= @user.name %>さんのいいねした投稿</h5>
+      <h5 class="text-center"><%= @user.name %>さんのいいねした投稿(<%= current_user.likes.count %>件)</h5>
         <% @like_posts.each do |post|%>
        <ul style="list-style: none;">
       <li class = "cafe_list">
