@@ -28,7 +28,11 @@ Rails.application.routes.draw do
 	# ユーザ
   scope module: :public do
     get "about" => "homes#about"
-    resources :users, only: [:show, :edit, :update] do
+    resources :users, only: [:show,:index, :edit, :update] do
+      # フォロー機能
+      resource :relationships, only: [:create, :destroy]
+      get "followings" => "relationships#followings", as: "followings"
+      get "followers" => "relationships#followers", as: "followers"
       member do
       get :likes
     end

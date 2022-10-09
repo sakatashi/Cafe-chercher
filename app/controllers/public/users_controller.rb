@@ -7,6 +7,10 @@ class Public::UsersController < ApplicationController
     @posts = @user.posts
     @post = Post.find_by(params[:id])
   end
+  
+  def index
+     @users = User.all
+  end
  
   def edit
     @user = User.find(params[:id])
@@ -38,8 +42,16 @@ class Public::UsersController < ApplicationController
     likes= Like.where(user_id: @user.id).pluck(:post_id)
     @like_posts = Post.find(likes)
   end
+  def follows
+  user = User.find(params[:id])
+  @users = user.following_user.page(params[:page]).per(3).reverse_order
+  end
 
-   private
+  def followers
+  user = User.find(params[:id])
+  @users = user.follower_user.page(params[:page]).per(3).reverse_order
+  end
+  private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :introduction, :status, :image)

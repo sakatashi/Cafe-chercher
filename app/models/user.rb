@@ -8,6 +8,11 @@ class User < ApplicationRecord
   has_many :likes,    dependent: :destroy
   has_many :comments, dependent: :destroy
   
+  has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :followings, through: :relationships, source: :followed
+  has_many :followers, through: :reverse_of_relationships, source: :follower
+  
    # アイコン画像設定
   has_one_attached :image
   def get_image(width, height)
@@ -16,6 +21,20 @@ class User < ApplicationRecord
       image.attach(io: File.open(file_path), filename: "no_image.jpg", content_type: "image/jpeg")
     end
     image.variant(resize_to_fill: [width, height]).processed
+  end
+  
+  # フォロー機能
+  # フォローする
+  def follow(user_id)
+    relationships.create(followed_id: user_id)
+  end
+  # フォロー解除
+  def unfollow(user_id)
+    relationships.find_by(followed_id: user_id).destroy
+  end
+  # フォローしているか判定
+  def following?(user)
+    followings.include?(user)
   end
   
   # ゲストログイン機能
