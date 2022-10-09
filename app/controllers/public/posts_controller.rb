@@ -37,7 +37,7 @@ class Public::PostsController < ApplicationController
     if current_user == @post.user
       if @post.update(post_params)
         if @post.is_draft == true
-          redirect_to post_path, notice: "更新しました。"
+          redirect_to post_path(@post), notice: "更新しました。"
         else
           redirect_to post_path(@post),
           notice: "マイページの「下書き投稿」に保存しました。"

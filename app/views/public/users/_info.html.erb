@@ -13,6 +13,22 @@
         <th>自己紹介</th>
           <td><%= user.introduction %></td>
       </tr>
+      <tr>
+        <th>フォロー</th>
+          <td>
+          <%= link_to user_followings_path(user) do %>
+          <%= user.followings.count %>
+          <% end %>
+          </td>
+      </tr>
+      <tr>
+         <th>フォロワー</th>
+          <td>
+          <%= link_to user_followers_path(user) do %>
+          <%= user.followers.count %>
+          <% end %>
+          </td>
+      </tr>
     </table>
     <p><%=link_to"いいねした投稿を見る",likes_user_path(user),class:'btn btn-outline-success w-100' %></p>
     <p><%=link_to"下書き投稿を見る",draft_index_path(user),class:'btn btn-outline-info w-100'%></p>

@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-6">
+      <h4 class="mb-4 text-center"><i class="fas fa-user-friends"></i>
+        <% if @user == current_user  %>
+          Myフォロー<br>
+        <%= @user.name %> さんのフォローしてる人 (<%= @users.count %>人)
+        <% end %>
+        <% if @users.exists? %>
+        <% @users.each do |user| %>
+        <table>
+          <thead>
+            <tr>
+              <th>image</th>
+              <th>name</th>
+              <th>フォロー</th>
+              <th>フォロワー</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> <%= image_tag user.get_image(100,100)%></td>
+              <td><%= user.name %></td>
+              <td><%= user.followings.count %></td>
+              <td><%= user.followers.count %></td>
+              <td><%= link_to 'Show', user %></td>
+            </tr>
+          </tbody>
+        </table>
+  <% end %>
+<% else %>
+  <p>ユーザーはいません</p>
+<% end %>
+    </div>
+  </div>
