@@ -1,8 +1,10 @@
 <div class="container">
   <div class="row justify-content-md-center">
      <div class="col-md-auto">
-       <h4><i class="fas fa-mug-hot"></i>投稿する</h4>
+      <div class="cafe_post">
+      <h5 class="text-center"><i class="fas fa-mug-hot"></i>投稿する</h5>
+       <p>（タイトル・本文・カフェ名は必須入力）</p>
        <%= render 'public/posts/form', post: @post %>
-        </div>
-       </div>
-      </div>
+    </div>
+  </div>
+</div>

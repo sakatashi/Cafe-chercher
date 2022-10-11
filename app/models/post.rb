@@ -7,6 +7,8 @@ class Post < ApplicationRecord
 
   #下書き機能
   enum is_draft: { published: 0, draft: 1 }
+  #平均予算
+  enum shop_price: {"~999":0,"1000~1999":1,"2000~2999":2 }
   
   # 投稿画像設定
   has_one_attached :image
