@@ -1,0 +1,11 @@
+<%= form_with model: @shop_tag, url: admin_shop_tags_path, method: :post do |f| %>
+  <%= f.label :name, "店舗 こだわり名" %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
+<% @shop_tags.each do |shop_tag| %>
+  <%= shop_tag.name %><br />
+<% end %>
+ <table class="table table-border">
+ <%= render "tags", shop_tags: @shop_tags %>
+
