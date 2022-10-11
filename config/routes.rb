@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:index, :destroy]
     end
     resources :post_tags, except:[:show, :index]
+    resources :shop_tags, only: [:new, :create]
   end
 
 	# ユーザ

@@ -6,6 +6,6 @@ class CreateShopTaggings < ActiveRecord::Migration[6.1]
       t.timestamps
     end
     # 同じタグを２回保存するのは出来ないようにする
-    add_index :post_tags, [:post_id, :shop_tag_id], unique: true
+    add_index :shop_taggings, [:post_id, :shop_tag_id], unique: true
   end
 end

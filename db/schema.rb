@@ -72,7 +72,6 @@ ActiveRecord::Schema.define(version: 2022_10_11_102801) do
     t.integer "tag_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"post_id\", \"shop_tag_id\"", name: "index_post_tags_on_post_id_and_shop_tag_id", unique: true
   end
 
   create_table "posts", force: :cascade do |t|
@@ -100,6 +99,7 @@ ActiveRecord::Schema.define(version: 2022_10_11_102801) do
     t.integer "shop_tag_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id", "shop_tag_id"], name: "index_shop_taggings_on_post_id_and_shop_tag_id", unique: true
     t.index ["post_id"], name: "index_shop_taggings_on_post_id"
     t.index ["shop_tag_id"], name: "index_shop_taggings_on_shop_tag_id"
   end
