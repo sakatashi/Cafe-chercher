@@ -6,3 +6,6 @@
 <% @shop_tags.each do |shop_tag| %>
   <%= shop_tag.name %><br />
 <% end %>
+ <table class="table table-border">
+ <%= render "tags", shop_tags: @shop_tags %>
+

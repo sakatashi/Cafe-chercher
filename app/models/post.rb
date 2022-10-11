@@ -11,7 +11,7 @@ class Post < ApplicationRecord
   enum is_draft: { published: 0, draft: 1 }
   #平均予算
   enum shop_price: {"~999":0,"1000~1999":1,"2000~2999":2 }
-  
+
   # 投稿画像設定
   has_one_attached :image
   def get_image(width, height)
@@ -21,7 +21,7 @@ class Post < ApplicationRecord
     end
       image.variant(resize_to_fill: [width, height]).processed
   end
-  
+
    # いいね機能
   def liked_by?(user)
     likes.exists?(user_id: user.id)
@@ -47,7 +47,7 @@ class Post < ApplicationRecord
       post.tags << tag
     end
   end
-  
+
   #検索機能
   def self.search(search)
     if search != nil

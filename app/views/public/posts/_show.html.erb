@@ -1,0 +1,45 @@
+<h4>投稿詳細</h4>
+<div class="container customize-border shadow bg-white mb-5 py-3">
+  <p>店舗名：<strong><%= post.shop_name %></strong></p>
+  <%= image_tag post.get_image(450,300)%>
+  <h5><strong><%= post.title %></strong></h5>
+  <p><%= render_with_tags(post.content) %></p>
+  <table class="table">
+    <tr>
+      <th>アクセス</th>
+        <td><%= post.shop_place %></td>
+    </tr>
+    <tr>
+      <th>平均予算</th>
+      <td><%= post.shop_price_i18n  %>　円</td>
+    </tr>
+    <tr>
+      <th>定休日</th>
+      <td><%= post.shop_holiday %></td>
+    </tr>
+    <tr id="post_<%= post.id %>"> <!--いいね機能-->
+      <th></th>
+        <td class="like-btn"><%= render 'public/likes/btn', post: post %></td>
+        <td>
+        <% if post.user == current_user %>
+        <%= link_to '編集', edit_post_path, class: 'btn btn-primary mr-3'%>
+        <% end %>
+        </td>
+        <td></td>
+    </tr>
+    <tr><th>設備情報</th></tr>
+      <% unless post.shop_tags.present? %>
+    <tr><td>-</td></tr>
+      <% else %>
+      <tr><td>
+      <% post.shop_tags.each do |tag| %>
+        <span class="btn btn-outline-secondary m-2">
+        <%#= link_to posts_path, class: "text-white" do %>
+          <%= tag.name %>
+        <%# end %>
+        </span>
+      <% end %>
+      </td></tr>
+      <% end %>
+  </table>
+</div>

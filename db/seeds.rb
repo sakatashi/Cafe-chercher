@@ -11,3 +11,14 @@ Admin.create!(
   email: "admin@com",
   password: "admincafe"
 )
+
+ShopTag.create([
+  { name: "落ち着いた空間" },
+  { name: " インスタ映え" },
+  { name: "Wi-Fi" },
+  { name: "電源あり" },
+  { name: "キャッシュレス可" },
+  { name: "テイクアウト" },
+  { name: "コンセント" },
+  { name: "ペット可" }
+])
