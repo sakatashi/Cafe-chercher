@@ -1,0 +1,2 @@
+class ShopTagging < ApplicationRecord
+end
