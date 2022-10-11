@@ -24,6 +24,17 @@
 
         <%= f.label :shop_price,"平均予算" %>
         <%= f.collection_radio_buttons :shop_price,Post.shop_prices_i18n, :first , :last%>　円<br>
+       
+       <div class='form-group'>
+       <%= f.collection_check_boxes(:shop_tag_ids, ShopTag.all, :id, :name) do |tag| %>
+       <div class='form-check'>
+        <%= tag.label class: 'form-check-label' do %>
+        <%= tag.check_box class: 'form-check-input' %>
+        <%= tag.text %>
+        <% end %>
+       </div>
+        <% end %>
+       </div>
 
         <div class="form-group">
         <%= f.select :is_draft, Post.is_drafts.keys.map { |k| [t("enums.post.is_draft.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
