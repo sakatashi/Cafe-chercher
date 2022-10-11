@@ -75,13 +75,13 @@ ActiveRecord::Schema.define(version: 2022_10_08_142256) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "title"
-    t.text "content"
+    t.integer "user_id", null: false
+    t.string "title", null: false
+    t.text "content", null: false
     t.string "shop_name"
     t.string "shop_place"
     t.string "shop_holiday"
-    t.string "shop_price"
+    t.integer "shop_price", default: 0, null: false
     t.integer "is_draft", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
