@@ -20,24 +20,24 @@
     <tr id="post_<%= post.id %>"> <!--いいね機能-->
       <th></th>
         <td class="like-btn"><%= render 'public/likes/btn', post: post %></td>
-        <td>
-        <% if post.user == current_user %>
-        <%= link_to '編集', edit_post_path, class: 'btn btn-primary mr-3'%>
-        <% end %>
-        </td>
+        
         <td></td>
     </tr>
-    <tr><th>設備情報</th></tr>
+    <tr><th>こだわり</th>
       <% unless post.shop_tags.present? %>
-    <tr><td>-</td></tr>
       <% else %>
-      <tr><td>
+      <td>
       <% post.shop_tags.each do |tag| %>
-        <span class="btn btn-outline-secondary m-2">
+        <span class="btn btn-outline-secondary ">
           <%= tag.name %>
         </span>
       <% end %>
       </td></tr>
       <% end %>
   </table>
+     <div class="text-center">
+        <% if post.user == current_user %>
+        <%= link_to '編集', edit_post_path, class: 'btn btn-primary w-50'%>
+        <% end %>
+        </div>
 </div>
