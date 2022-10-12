@@ -54,6 +54,8 @@ Rails.application.routes.draw do
     get 'search' => 'searches#search'
     # タグ検索結果ページ
     get "post/tag/:name" => "posts#tag"
+    #こだわりタグ検索結果ページ
+    get "post/shop_tag/:name" => "posts#shop_tag"
   end
 
   root to: 'public/homes#top'

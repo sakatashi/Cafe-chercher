@@ -51,7 +51,7 @@ class Post < ApplicationRecord
   #検索機能
   def self.search(search)
     if search != nil
-      Post.where('title LIKE(?) or shop_name LIKE(?)' , "%#{search}%",  "%#{search}%")
+      Post.where('title LIKE(?) OR shop_name LIKE(?)' , "%#{search}%",  "%#{search}%")
     else
       Post.all
     end

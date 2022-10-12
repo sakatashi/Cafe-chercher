@@ -28,8 +28,10 @@
       <% else %>
       <td>
       <% post.shop_tags.each do |tag| %>
-        <span class="btn btn-outline-secondary ">
-          <%= tag.name %>
+       <span class="text-secondary">
+            <%= link_to  "/post/shop_tag/#{tag.name}", class: "btn btn-outline-secondary m-2" do %>
+              <%= tag.name %>
+              <% end %>
         </span>
       <% end %>
       </td></tr>
@@ -40,4 +42,3 @@
         <%= link_to '編集', edit_post_path, class: 'btn btn-primary w-50'%>
         <% end %>
         </div>
-</div>
