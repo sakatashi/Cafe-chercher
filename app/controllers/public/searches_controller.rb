@@ -1,5 +1,5 @@
 class Public::SearchesController < ApplicationController
-   def search
+  def search
     @keyword = params[:keyword]
     @post = Post.search(@keyword)
    

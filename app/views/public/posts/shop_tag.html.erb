@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mb-3 d-none d-md-block">
+
+      <h4 class="mb-4 text-center"><span><i class="fas fa-search fa-xs"></i></span> 設備情報に 「<%= @shop_tag.name %>」を含む投稿 (<%= @post.count %>件)</h4>
+      <% if @page_posts.present? %>
+        <%= render 'public/posts/index', page_posts: @page_posts %>
+      <% else %>
+        <p class="text-center">現在、一致する投稿はありません。</p>
+      <% end %>
+      <%= render 'public/users/mypage.btn', user: current_user %>
+    </div>
+  </div>
+</div>
