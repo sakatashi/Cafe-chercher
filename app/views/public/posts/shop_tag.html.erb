@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+         <div class="col-sm-4 col-md-4">
+      <h5 class="text-center"><i class="fas fa-search fa-xs"></i>こだわりに 「<%= @shop_tag.name %>」を含む投稿 (<%= @post.count %>件)</h5>
+      <% if @post.present? %>
+         <%= render 'public/posts/index', posts: @post %>
+      <% else %>
+        <p class="text-center">現在、一致する投稿はありません。</p>
+      <% end %>
+    </div>
+  </div>
+</div>

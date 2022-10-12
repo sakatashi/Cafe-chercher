@@ -20,6 +20,7 @@ class Public::PostsController < ApplicationController
   def index
     @posts = Post.published
     @post = Post.new
+    @posts = params[:shop_tag_ids].present? ? ShopTag.find(params[:shop_tag_ids]).posts : Post.all
   end
 
   def show
@@ -64,6 +65,13 @@ class Public::PostsController < ApplicationController
 #非公開ページ
   def draft_index
     @posts = current_user.posts.draft
+  end
+  
+   # こだわりタグ検索結果ページ
+  def shop_tag
+    @shop_tag = ShopTag.find_by(name: params[:name]) 
+    @post = @shop_tag.posts 
+  
   end
   # タグ検索結果ページ
   def tag
