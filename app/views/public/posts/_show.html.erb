@@ -29,16 +29,17 @@
       <td>
       <% post.shop_tags.each do |tag| %>
        <span class="text-secondary">
-            <%= link_to  "/post/shop_tag/#{tag.name}", class: "btn btn-outline-secondary m-2" do %>
-              <%= tag.name %>
-              <% end %>
-        </span>
+       <%= link_to  "/post/shop_tag/#{tag.name}", class: "btn btn-outline-secondary m-2" do %>
+         <%= tag.name %>
+       <% end %>
+       </span>
       <% end %>
       </td></tr>
       <% end %>
   </table>
-     <div class="text-center">
-        <% if post.user == current_user %>
-        <%= link_to '編集', edit_post_path, class: 'btn btn-primary w-50'%>
-        <% end %>
-        </div>
+  <div class="text-center">
+    <% if post.user == current_user %>
+    <%= link_to '編集', edit_post_path, class: 'btn btn-primary w-50'%>
+    <% end %>
+  </div>
+</div>

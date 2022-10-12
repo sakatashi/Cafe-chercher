@@ -18,9 +18,8 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.published
     @post = Post.new
-    @posts = params[:shop_tag_ids].present? ? ShopTag.find(params[:shop_tag_ids]).posts : Post.all
+    @posts = params[:shop_tag_ids].present? ? ShopTag.find(params[:shop_tag_ids]).posts : Post.published
   end
 
   def show
