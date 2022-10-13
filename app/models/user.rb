@@ -13,6 +13,10 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
   
+  validates :name, presence: true, length: { maximum: 20 }
+  validates :email,presence: true
+  validates :password,presence: true
+  
    # アイコン画像設定
   has_one_attached :image
   def get_image(width, height)
