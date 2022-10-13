@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   has_many :shop_taggings, dependent: :destroy
   has_many :shop_tags, through: :shop_taggings, dependent: :destroy
 
-　validates :title, presence: true,length: { maximum: 50 }
+　　　　validates :title, presence: true,length: { maximum: 50 }
   validates :content, presence: true,length: { minimum: 1, maximum: 125 }
   validates :shop_name, presence: true
   
@@ -31,7 +31,7 @@ class Post < ApplicationRecord
     likes.exists?(user_id: user.id)
   end
 
-# タグ機能（投稿保存前に実行する）
+# ハッシュタグ機能（投稿保存前に実行する）
   after_create do
     post = Post.find_by(id: self.id)
     tags = self.content.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
