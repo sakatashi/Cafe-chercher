@@ -16,6 +16,32 @@
   text-align: center;
   border-radius: 240px 15px 100px 15px / 15px 200px 15px 185px;
 }
+/*トップページ*/
+.top_font {
+  font-family:cursive;
+  font-size: 40px;
+  text-shadow: 3px 3px 5px rgba(14, 51, 29, 0.5)
+}
+.newpost {
+  display: flex; /*横並び*/
+  flex-wrap: wrap;
+  justify-content: space-evenly; /*各アイテムを均等に配置 間隔も均等*/
+}
+.newpost_flame {
+  padding: 0.2em 0.5em;
+  margin: 2em 0;
+  color: #565656;
+  background: #ffeaea;
+  box-shadow: 0px 0px 0px 10px #ffeaea;
+  border: dashed 2px #ffc3c3;
+  border-radius: 8px;
+  width: 230px;
+}
+
+.newpost img {
+    margin: 0;
+    padding: 0;
+}
 ul {
  list-style: none;
  float: left;
@@ -81,6 +107,7 @@ text_area{
   width: 600px;
   height: 400px;
   margin-bottom: 30px;
+  height: auto;
 }
 
 h2 {
