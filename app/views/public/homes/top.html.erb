@@ -1,20 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col">
-
       <p class="top_font">new post</p>
-            <div class="newpost">
-            <% @new_posts.each do |new_posts| %>
-            <div class="newpost_flame">
-            <%= image_tag new_posts.get_image(210,150) %>
-
-　　　　　　<%= link_to posts_path, class: "text-dark" do %>
-            <p><strong><%= new_posts.title %></strong></p>
-            <% end %>
-           </div>
-            <% end %>
-          </div>
-       </div>
+      <div class="newpost">
+        <% @new_posts.each do |new_posts| %>
+        <div class="newpost_flame">
+          <%= image_tag new_posts.get_image(210,150) %>
+　　　　　<%= link_to posts_path, class: "text-dark" do %>
+          <p><strong><%= new_posts.title %></strong></p>
+          <% end %>
+        </div>
+        <% end %>
       </div>
     </div>
   </div>
