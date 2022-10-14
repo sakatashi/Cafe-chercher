@@ -1,12 +1,21 @@
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-12">
+      <div class="top_list">
+      <div class="top1">
+        <p>初めてご利用の方<br>新規登録お願いします</p>
+        <%= link_to '新規登録', new_user_registration_path, class: "btn btn-outline-success" %>
+      </div>
+      <div class="top2">
+        <p>既に登録済みの方<br>こちらからログインしてください</p>
+        <%= link_to 'ログイン', new_user_session_path, class: "btn btn-outline-primary" %>
+      </div>
       <p class="top_font">new post</p>
       <div class="newpost">
         <% @new_posts.each do |new_posts| %>
         <div class="newpost_flame">
           <%= image_tag new_posts.get_image(210,150) %>
-　　　　　　　　　　　　　　　　　　　　<%= link_to posts_path, class: "text-dark" do %>
+　　　　　<%= link_to posts_path, class: "text-dark" do %>
           <p><strong><%= new_posts.title %></strong></p>
           <% end %>
         </div>
