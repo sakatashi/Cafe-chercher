@@ -1,21 +1,21 @@
-<div class="container">
-  <div class="row justify-content-md-center">
-    <div class="col-md-auto">
+<div class="container py-3 px-5">
+  <div class="row d-flex flex-column align-content-center">
+      <div class="col-lg-5 mx-3">
       <%= render "public/shared/error_messages", resource: resource %>
     </div>
-    <div>
-      <h4 class="text-center"><i class="fas fa-user-plus"></i> 新規登録</h4>
+    <div class="sign_up">
+      <h4><i class="fas fa-user-plus"></i> 新規登録</h4>
       <%= form_with model: resource, url: user_registration_path do |f| %>
-        <div class="field">
-          <%= f.label :名前 %><br />
+        <div class="field　mt-3">
+          <%= f.label :名前（20文字以内）%><br />
           <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "ニックネームを入力"%>
         </div>
         <div class="field">
-          <%= f.label :メールアドレス %><br />
+          <i class="fas fa-envelope"></i> <%= f.label :メールアドレス %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレスを入力" %>
         </div>
         <div class="field">
-          <%= f.label :"パスワード"%>
+          <i class="fas fa-lock"></i> <%= f.label :"パスワード"%>
           <% if @minimum_password_length %>
           (<%= @minimum_password_length %>文字以上)
           <% end %><br />
@@ -23,15 +23,17 @@
         <div class="field">
           <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワードを入力"%>
         </div>
-        <div class="field">
+        <div class="field mt-3">
           <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "パスワード(確認用)"%>
         </div>
-        <div class="actions">
-          <%= f.submit "新規登録", class: "btn btn-success" %>
+        <div class="actions mt-4">
+          <%= f.submit "新規登録", class: "btn btn-success w-50" %>
         </div>
       <% end %>
+      </div>
+      <div class="sign_up">
       <p>登録済みの方</p>
       <%= render "public/shared/links" %>
-    </div>
+      </div>
   </div>
 </div>

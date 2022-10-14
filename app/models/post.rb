@@ -7,10 +7,11 @@ class Post < ApplicationRecord
   has_many :shop_taggings, dependent: :destroy
   has_many :shop_tags, through: :shop_taggings, dependent: :destroy
 
-　　　　validates :title, presence: true,length: { maximum: 50 }
+
+  validates :title, presence: true, length: { maximum: 50 }
   validates :content, presence: true,length: { minimum: 1, maximum: 125 }
   validates :shop_name, presence: true
-  
+
   #下書き機能
   enum is_draft: { published: 0, draft: 1 }
   #平均予算
