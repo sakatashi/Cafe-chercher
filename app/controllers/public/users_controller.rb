@@ -7,11 +7,11 @@ class Public::UsersController < ApplicationController
     @posts = @user.posts
     @post = Post.find_by(params[:id])
   end
-  
+
   def index
-     @users = User.all
+     @users = User.page(params[:page])
   end
- 
+
   def edit
     @user = User.find(params[:id])
   end
