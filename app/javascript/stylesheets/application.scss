@@ -17,6 +17,38 @@
   border-radius: 240px 15px 100px 15px / 15px 200px 15px 185px;
 }
 /*トップページ*/
+.top_list {
+  display: flex; /*横並び*/
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.top1 {
+  padding: 0.2em 0.5em;
+  margin: 2em 0;
+  background: #d6ebff;
+  box-shadow: 0px 0px 0px 10px #d6ebff;
+  border: dashed 2px white;
+  width: 240px;
+  text-align: center;
+}
+.top2 {
+  padding: 0.2em 0.5em;
+  margin: 2em 0;
+  background: #d6ebff;
+  box-shadow: 0px 0px 0px 10px #d6ebff;
+  border: dashed 2px white;
+  width: 240px;
+  text-align: center;
+}
+.top3 {
+  padding: 0.2em 0.5em;
+  margin: 2em 0;
+  background: #d6ebff;
+  box-shadow: 0px 0px 0px 10px #d6ebff;
+  border: dashed 2px white;
+  width: 240px;
+  text-align: center;
+}
 .top_font {
   font-family:cursive;
   font-size: 40px;
@@ -39,8 +71,8 @@
 }
 
 .newpost img {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 ul {
  list-style: none;
