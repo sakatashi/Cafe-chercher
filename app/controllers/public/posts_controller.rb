@@ -73,7 +73,7 @@ class Public::PostsController < ApplicationController
   def shop_tag
     @shop_tag = ShopTag.find_by(name: params[:name])
     @post = @shop_tag.posts.page(params[:page])
-   
+
 
   end
   # タグ検索結果ページ
