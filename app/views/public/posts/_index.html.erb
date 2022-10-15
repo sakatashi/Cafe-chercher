@@ -8,6 +8,9 @@
      <p><%= post.shop_name %></p>
      <p><%= post.shop_place %></p>
      <p><i class="far fa-comment-alt"></i><%= link_to " #{post.comments.count} ", post_path(post.id) %></p>
-       </div>
+    </div>
   <% end %>
 </div>
+ <div class="pagination">
+  <%= paginate posts %>
+ </div>

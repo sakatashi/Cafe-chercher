@@ -10,9 +10,9 @@ class Public::PostsController < ApplicationController
     @post.user_id = current_user.id
     if @post.save
       if @post.is_draft == true
-        redirect_to posts_path(@post), notice: "投稿しました。"
+        redirect_to posts_path, notice: "投稿しました。"
       else
-        redirect_to posts_path(@post), notice: "マイページの「下書き投稿」に保存しました。"
+        redirect_to posts_path, notice: "マイページの「下書き投稿」に保存しました。"
       end
     else
       redirect_to new_post_path(@post), alert: "入力内容をご確認ください。"
@@ -21,13 +21,14 @@ class Public::PostsController < ApplicationController
 
   def index
     @post = Post.new
-    @posts = params[:shop_tag_ids].present? ? ShopTag.find(params[:shop_tag_ids]).posts : Post.published.order(created_at: :desc)
+    @posts = params[:shop_tag_ids].present? ? ShopTag.find(params[:shop_tag_ids]).posts.page(params[:page]) : Post.published.order(created_at: :desc).page(params[:page]).per(6)
   end
 
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
     @shop_tags = @post.tags
+
 
   end
 
@@ -71,13 +72,14 @@ class Public::PostsController < ApplicationController
    # こだわりタグ検索結果ページ
   def shop_tag
     @shop_tag = ShopTag.find_by(name: params[:name])
-    @post = @shop_tag.posts
+    @post = @shop_tag.posts.page(params[:page])
+   
 
   end
   # タグ検索結果ページ
   def tag
     @tag = Tag.find_by(name: params[:name])
-    @post = @tag.posts
+    @post = @tag.posts.page(params[:page])
   end
 
   private
