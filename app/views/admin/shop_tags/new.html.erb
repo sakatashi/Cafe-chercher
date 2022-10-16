@@ -1,11 +1,20 @@
-<%= form_with model: @shop_tag, url: admin_shop_tags_path, method: :post do |f| %>
-  <%= f.label :name, "店舗 こだわり名" %>
-  <%= f.text_field :name %>
-  <%= f.submit %>
-<% end %>
-<% @shop_tags.each do |shop_tag| %>
-  <%= shop_tag.name %><br />
-<% end %>
- <table class="table table-border">
- <%= render "tags", shop_tags: @shop_tags %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 my-3">
+    <h4><i class="fas fa-tag"></i> こだわりタグを作成</h4>
+    <%= form_with model: @shop_tag, url: admin_shop_tags_path, method: :post do |f| %>
+     <%= f.label :name, "店舗 こだわり名" %><br>
+      <div class="form-group">
+       <%= f.text_field :name %><br>
+      </div>
+     <%= f.submit'登録する', class: "btn btn-success w-50" %>
+    <% end %>
+    </div>
+    <div class="col-md-6 my-3">
+    <h4><i class="fas fa-tags"></i> こだわりタグを編集・削除</h4>
+     <table class="table table-border">
+       <%= render "tags", shop_tags: @shop_tags %>
+    </div>
+  </div>
+</div>
 
