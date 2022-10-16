@@ -1,22 +1,24 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-auto mt-3">
+<div class="container py-3 px-5">
+  <div class="row d-flex flex-column align-content-center">
+    <div class="col-lg-5 mx-3 ">
+      <div class="login">
       <h4 class="text-center"><i class="fas fa-users-cog"></i> 管理者ログイン</h4>
       <%= form_with model: resource, url: admin_session_path do |f| %>
-        <div class="field">
+        <div class="field mt-4">
           <%= f.label :メールアドレス%><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "メールアドレス",class: "form-control" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "メールアドレス"%>
         </div>
 
-        <div class="field">
+        <div class="field mt-4">
           <%= f.label :パスワード%><br />
-          <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード",class: "form-control"%>
+          <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード"%>
         </div>
 
-        <div class="actions">
-          <%= f.submit "ログイン",class: "form-control mt-4 btn btn-primary " %>
+        <div class="actions mt-4">
+          <%= f.submit "ログイン",class: "btn btn-primary w-50" %>
         </div>
-          <% end %>
+      <% end %>
+      </div>
     </div>
   </div>
 </div>
