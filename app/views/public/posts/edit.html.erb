@@ -17,13 +17,13 @@
        <h5 class="text-center"><i class="fas fa-store"></i>店舗情報</h5>
          <i class="fas fa-map-marker-alt"></i> <%= f.label :shop_place,"アクセス" %><br>
          <%= f.text_field :shop_place %><br>
-       
+
          <i class="fas fa-store-slash"></i> <%= f.label :shop_holiday,"定休日" %><br>
          <%= f.text_field :shop_holiday %><br>
-       
+
          <i class="fas fa-yen-sign"></i> <%= f.label :shop_price,"平均予算" %><br>
          <%= f.collection_radio_buttons :shop_price,Post.shop_prices_i18n, :first , :last%><br>
-         
+
        <div class='form-group'>
          <i class="far fa-star"></i> <%= f.label :shop_tag_ids,'こだわり（当てはまるものにチェック)' %><br>
          <%= f.collection_check_boxes(:shop_tag_ids, ShopTag.all, :id, :name) do |tag| %>

@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
-  
-  
+
+
   # ゲストユーザ　ログイン
   devise_scope :user do
     post "users/guest_sign_in", to: "public/sessions#guest_sign_in"
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       resources :posts, only: [:show, :index, :destroy]
       resources :comments, only: [:index, :destroy]
     end
-    resources :post_tags, except:[:show, :index]
+    resources :tags, except:[:show, :index]
     resources :shop_tags, except:[:index]
   end
 

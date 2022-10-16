@@ -1,5 +1,6 @@
 class Admin::ShopTagsController < ApplicationController
   before_action :authenticate_admin!
+  before_action :shop_tag_choice, only: [:edit, :update, :destroy]
 
   def new
     @shop_tag = ShopTag.new

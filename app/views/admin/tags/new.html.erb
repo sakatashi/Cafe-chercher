@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 my-3">
-    <h4><i class="fas fa-tag"></i> こだわりタグを作成</h4>
-    <%= form_with model: @shop_tag, url: admin_shop_tags_path, method: :post do |f| %>
-     <%= f.label :name, "店舗 こだわり名" %><br>
+    <h4><i class="fas fa-tag"></i> ハッシュタグを作成</h4>
+    <%= form_with model: @tag, url: admin_tags_path, method: :post do |f| %>
+     <%= f.label :name, "ハッシュタグ名" %><br>
       <div class="form-group">
        <%= f.text_field :name %><br>
       </div>
@@ -11,10 +11,9 @@
     <% end %>
     </div>
     <div class="col-md-6 my-3">
-    <h4><i class="fas fa-tags"></i> こだわりタグを編集・削除</h4>
+    <h4><i class="fas fa-tags"></i> ハッシュタグを編集・削除</h4>
      <table class="table table-border">
-       <%= render "shop_tags", shop_tags: @shop_tags %>
+       <%= render "tags", tags: @tags %>
     </div>
   </div>
 </div>
-

@@ -10,8 +10,8 @@
     <% shop_tags.each do |shop_tag| %>
       <tr>
         <td><%= shop_tag.name %></td>
-        <td><%= link_to "編集", edit_admin_shop_tag_path(shop_tag) %></td>
-        <td><%= link_to "削除", admin_shop_tag_path(shop_tag), method: :delete, data: {confirm: "本当に削除しますか？" } %></td>
+        <td><%= link_to "編集する", edit_admin_shop_tag_path(shop_tag) %></td>
+        <td><%= link_to "削除する", admin_shop_tag_path(shop_tag), method: :delete, data: {confirm: "本当に削除しますか？" } %></td>
       </tr>
     <% end %>
   </tbody>
