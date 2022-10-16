@@ -1,0 +1,16 @@
+<div class="post_list">
+  <% posts.each do |post| %>
+    <div class="post">
+     <%= link_to post_path(post.id) do %>
+     <%= image_tag post.get_image(250,150)%>
+     <% end %>
+     <p><strong><%= post.title %></strong></p>
+     <p><%= post.shop_name %></p>
+     <p><%= post.shop_place %></p>
+     <p><i class="far fa-comment-alt"></i><%= link_to " #{post.comments.count} ", post_path(post.id) %></p>
+    </div>
+  <% end %>
+</div>
+<div class="pagination">
+  <%= paginate posts %>
+</div>
