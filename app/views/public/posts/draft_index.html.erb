@@ -1,16 +1,20 @@
-   <h4>下書き一覧</h4>
-   <% @posts.each do |post| %>
-          <ul>
-           <li>
-      <div class="container shadow mb-5 py-3">
-        <%= link_to post_path(post.id) do %>
-        <%= image_tag post.get_image(250,150)%>
-        <% end %>
+<div class ="container" >
+  <div class="row">
+    <div class="col-12">
+      <h5 class="text-center"><i class="fas fa-pencil-alt"></i> 下書き投稿</h5>
+      <div class="post_list">
+      <% @posts.each do |post| %>
+        <div class="post">
+         <%= link_to post_path(post) do %>
+         <%= image_tag post.get_image(250,150)%>
+         <% end %>
          <p><strong><%= post.title %></strong></p>
          <p><%= post.shop_name %></p>
          <p><%= post.shop_place %></p>
          <p><i class="far fa-comment-alt"></i><%= link_to " #{post.comments.count} ", post_path(post.id) %></p>
-           </li>
-          </ul>
-          <% end %>
-    
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
