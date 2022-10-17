@@ -1,9 +1,8 @@
-<h4>投稿詳細</h4>
-<div class="container customize-border shadow bg-white mb-5 py-3">
-  <p>店舗名：<strong><%= post.shop_name %></strong></p>
-  <%= image_tag post.get_image(450,300)%>
+<div class="col-lg-6 mt-4">
+  <div class="post_show">
   <h5><strong><%= post.title %></strong></h5>
   <p><%= render_with_tags(post.content) %></p>
+
   <table class="table">
     <tr>
       <th>アクセス</th>
@@ -20,7 +19,7 @@
     <tr id="post_<%= post.id %>"> <!--いいね機能-->
       <th></th>
         <td class="like-btn"><%= render 'public/likes/btn', post: post %></td>
-        
+
         <td></td>
     </tr>
     <tr><th>こだわり</th>
@@ -42,4 +41,5 @@
     <%= link_to '編集', edit_post_path, class: 'btn btn-primary w-50'%>
     <% end %>
   </div>
+</div>
 </div>

@@ -1,14 +1,20 @@
 <div class="container">
-  <div class="row justify-content-md-center">
-    <div class="col-lg-6 my-4">
-       <%= render 'public/posts/show', post: @post %>
-      <div class="container customize-border shadow">
-        <!--コメント一覧部分-->
+  <div class="row">
+    <div class="col-lg-6">
+    <h4><i class="fas fa-mug-hot"></i> 投稿詳細</h4>
+      <div class="post_show">
+      <p>店舗名：<strong><%= @post.shop_name %></strong></p>
+      <%= image_tag @post.get_image(450,300)%>
+      </div>
+    </div>
+    <%= render 'public/posts/show', post: @post %>
+    <div class="container">
+      <div class="post_show">
         <div class="comments_area">
         <%= render 'public/comments/index', post: @post%>
         </div>
         <!--コメントフォーム-->
-       <div class="new-comment">
+        <div class="new-comment">
         <%= render 'public/comments/form',post: @post %>
         </div>
       </div>
