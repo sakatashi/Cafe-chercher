@@ -1,6 +1,6 @@
 <div class="container py-3 px-5">
   <div class="row d-flex flex-column align-content-center">
-      <div class="col-lg-5 mx-3">
+    <div class="col-lg-5 mx-3">
       <%= render "public/shared/error_messages", resource: resource %>
     </div>
     <div class="sign_up">
@@ -30,10 +30,10 @@
           <%= f.submit "新規登録", class: "btn btn-success w-50" %>
         </div>
       <% end %>
-      </div>
-      <div class="sign_up">
-      <p>登録済みの方</p>
-      <%= render "public/shared/links" %>
-      </div>
+    </div>
+    <div class="sign_up">
+     <p>登録済みの方</p>
+     <%= render "public/shared/links" %>
+    </div>
   </div>
 </div>
