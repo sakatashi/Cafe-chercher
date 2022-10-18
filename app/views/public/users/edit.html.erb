@@ -3,7 +3,7 @@
     <div class="col-md-auto">
       <h5 class="text-center"><i class="fas fa-pencil-alt"></i> 編集する</h5>
         <%= form_with model: @user, url: user_path do |f|%>
-        <div class="cafe_post">
+        <div class="post_form">
         <i class="fas fa-user-circle"></i> <%= f.label :image,"アイコン設定" %><br>
         <%= f.file_field :image,accept: 'image/*' %><br>
 

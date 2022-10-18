@@ -1,22 +1,22 @@
-<div class="col-8">
+<div class="col-md-8 mt-3">
 <h5><i class="fas fa-pencil-alt"></i> <%= user.name %>さんの投稿(<%= posts.count %>件)</h5>
-  <div class="post_list">
+  <div class="post_list mb-3">
     <% posts.each do |post| %>
     <div class="post">
      <%= link_to post_path(post.id) do %>
-     <%= image_tag post.get_image(250,150)%>
+      <%= image_tag post.get_image(250,150)%>
      <% end %>
-     <p><strong><%= post.title %></strong></p>
-     <p><%= post.shop_name %></p>
-     <p><%= post.shop_place %></p>
-     <p><i class="far fa-comment-alt"></i><%= link_to " #{post.comments.count} ", post_path(post.id) %></p>
+      <p><strong><%= post.title %></strong></p>
+      <p><%= post.shop_name %></p>
+      <p><%= post.shop_place %></p>
+      <p><i class="far fa-comment-alt"></i><%= link_to " #{post.comments.count} ", post_path(post.id) %></p>
     </div>
     <% end %>
+    <% if user == current_user&& user.name != "guestuser" %>
+     <%= link_to '編集', edit_post_path, class: 'btn btn-primary w-50'%>
+    <% end %>
   </div>
-  <% if user == current_user&& user.name != "guestuser" %>
-   <%= link_to '編集', edit_post_path, class: 'btn btn-primary w-50'%>
-  <% end %>
   <div class="pagination">
-  <%= paginate posts %>
+   <%= paginate posts %>
   </div>
 </div>
