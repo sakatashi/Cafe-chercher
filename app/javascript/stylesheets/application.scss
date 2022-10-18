@@ -1,6 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+.main {
+  min-height: 1000px;
+}
 
 .login {
   padding: 20px;
@@ -126,9 +129,9 @@ text_area{
 }
 
 .about_info img {
-  width: 500px;
-  margin-bottom: 30px;
-　width: 100%;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
 }
 
 h2 {
@@ -226,4 +229,18 @@ footer {
 }
 footer a {
   margin: 10px;
+}
+
+html {
+  font-size: 75%;
+}
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  html {
+    font-size: 100%;
+  }
 }
