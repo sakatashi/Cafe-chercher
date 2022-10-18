@@ -4,7 +4,7 @@
       <h4>投稿詳細</h4>
       <div class="container customize-border shadow bg-white mb-5 py-3">
         <p>店舗名：<strong><%= @post.shop_name %></strong></p>
-          <%= image_tag @post.get_image(450,300)%>
+          <%= image_tag @post.get_image,class:"post_image"%>
         <h5><strong><%= @post.title %></strong></h5>
         <p><%= render_with_tags(@post.content) %></p>
         <table class="table">

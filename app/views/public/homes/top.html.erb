@@ -46,7 +46,7 @@
       <div class="newpost">
         <% @new_posts.each do |new_posts| %>
         <div class="newpost_flame">
-          <%= image_tag new_posts.get_image(210,150) %>
+          <%= image_tag new_posts.get_image,class:"image_new" %>
 　　　　　       　<%= link_to posts_path, class: "text-dark" do %>
           <p><strong><%= new_posts.title %></strong></p>
           <% end %>

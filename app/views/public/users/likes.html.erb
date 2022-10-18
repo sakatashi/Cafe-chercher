@@ -6,7 +6,7 @@
       <% @like_posts.each do |post| %>
         <div class="post">
          <%= link_to post_path(post.id) do %>
-         <%= image_tag post.get_image(250,150)%>
+         <%= image_tag post.get_image,class:"image_index"%>
          <% end %>
          <p><strong><%= post.title %></strong></p>
          <p><%= post.shop_name %></p>

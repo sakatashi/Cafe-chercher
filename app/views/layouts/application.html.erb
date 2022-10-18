@@ -11,9 +11,12 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>  
+    <%= render 'layouts/header' %>
+    <div class="main">
     <%= render 'public/searches/form' %>
     <div class="text-center"><%= notice %></div>
       <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
