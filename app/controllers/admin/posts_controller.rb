@@ -14,4 +14,10 @@ class Admin::PostsController < ApplicationController
     Post.find(params[:id]).destroy
     redirect_to admin_user_posts_path, notice: '投稿を削除しました。'
   end
+
+   private
+  def post_params
+  params.require(:post).permit(:user_id, :title, :content, :shop_name, :shop_place, :shop_holiday, :shop_price, :is_draft,:image,:lat,:lng,shop_tag_ids:[])
+  end
 end
+

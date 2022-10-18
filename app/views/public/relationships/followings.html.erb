@@ -7,7 +7,7 @@
         <% end %>
         <% if @users.exists? %>
         <% @users.each do |user| %>
-         <div class="container shadow mb-5 py-3">
+        <div class="user_index">
         <table class="table">
           <thead>
             <tr class="text-center">
@@ -20,7 +20,7 @@
           </thead>
           <tbody>
             <tr class="text-center">
-              <td> <%= image_tag user.get_image(100,100)%></td>
+              <td> <%= image_tag user.get_image,class:"plofile_index"%></td>
               <td><%= user.name %></td>
               <td><%= user.followings.count %></td>
               <td><%= user.followers.count %></td>
