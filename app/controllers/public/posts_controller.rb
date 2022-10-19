@@ -1,5 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!
+   before_action :post_choice, only: [:show, :map_edit, :update, :destroy]
 
   def new
     @post = Post.new
@@ -28,10 +29,11 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @shop_tags = @post.tags
-
-
   end
-
+  
+  def map_edit
+  end
+  
   def edit
     @post = Post.find(params[:id])
   end
@@ -82,8 +84,17 @@ class Public::PostsController < ApplicationController
     @post = @tag.posts.page(params[:page])
   end
 
+  def post_choice
+    if (params[:id]).present?
+      @post = Post.find(params[:id])
+    else
+      @post = Post.find(params[:post_id])
+    end
+  end
+
+
   private
   def post_params
-  params.require(:post).permit(:user_id, :title, :content, :shop_name, :shop_place, :shop_holiday, :shop_price, :is_draft,:image,:lat,:lng,shop_tag_ids:[])
+  params.require(:post).permit(:user_id, :title, :content, :shop_name, :shop_place, :shop_holiday, :shop_price, :is_draft, :image, :lat, :lng, shop_tag_ids:[])
   end
 end

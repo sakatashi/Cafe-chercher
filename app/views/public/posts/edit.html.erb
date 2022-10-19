@@ -35,6 +35,7 @@
          </div>
            <% end %>
        </div>
+     
        <div class="form-group">
          <i class="fas fa-pencil-alt"></i> <%= f.label :is_draft,"下書き/投稿" %><br>
          <%= f.select :is_draft, Post.is_drafts.keys.map { |k| [t("enums.post.is_draft.#{k}"),k]}, {}, {class: "custom-select w-50"} %>
