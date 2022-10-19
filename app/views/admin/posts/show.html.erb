@@ -2,9 +2,9 @@
   <div class="row justify-content-md-center">
     <div class="col-lg-6 my-4">
       <h4>投稿詳細</h4>
-      <div class="container customize-border shadow bg-white mb-5 py-3">
+      <div class="post_show">
         <p>店舗名：<strong><%= @post.shop_name %></strong></p>
-          <%= image_tag @post.get_image,class:"post_image"%>
+          <%= image_tag @post.get_image,class: "post_image"%>
         <h5><strong><%= @post.title %></strong></h5>
         <p><%= render_with_tags(@post.content) %></p>
         <table class="table">
@@ -21,18 +21,28 @@
             <td><%= @post.shop_holiday %></td>
           </tr>
           <tr>
+            <th>こだわり</th>
+            <% unless @post.shop_tags.present? %>
+            <% else %>
             <td>
-              <% if @post.user == current_user %>
-              <%= link_to '編集', edit_post_path, class: 'btn btn-primary mr-3'%>
-              <% end %>
-              </td>
-              <td></td>
+            <% @post.shop_tags.each do |tag| %>
+             <span class="text-secondary">
+             <%= link_to  "/post/shop_tag/#{tag.name}", class: "btn btn-outline-secondary m-2" do %>
+               <%= tag.name %>
+             <% end %>
+             </span>
+            <% end %>
+            </td>
+          </tr>
+          <% end %>
+          <tr>
+            <th></th>
+            <td>
+             <%= link_to '削除', admin_user_post_path(@post.user, @post), method: :delete, data: {confirm: "投稿を削除します。よろしいですか？"},class: 'btn btn-danger w-25'%>
+            </td>
+            <td></td>
           </tr>
         </table>
-      </div>
-      <div class="container customize-border shadow">
-        <!--コメント一覧部分-->
-        <%= render 'public/comments/index', post: @post%>
       </div>
     </div>
   </div>
