@@ -4,7 +4,7 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.page(params[:page]).per(2)
+    @posts = @user.posts.published.page(params[:page]).per(2)
     @post = Post.find_by(params[:id])
   end
 
