@@ -29,6 +29,7 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @shop_tags = @post.tags
+    @user_post =@post.user
   end
   
   def map_edit
