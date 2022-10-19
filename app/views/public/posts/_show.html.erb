@@ -19,7 +19,6 @@
     <tr id="post_<%= post.id %>"> <!--いいね機能-->
       <th></th>
         <td class="like-btn"><%= render 'public/likes/btn', post: post %></td>
-
         <td></td>
     </tr>
     <tr><th>こだわり</th>
@@ -36,8 +35,43 @@
       </td></tr>
       <% end %>
   </table>
+  <h5><i class="fas fa-map-marker-alt"></i> 地図情報</h5>
+    <% if post.lat == 0.0 && post.lng == 0.0 || post.lat == nil && post.lng == nil %>
+    <p>※現在、地図情報は登録されていません。</p>
+    <% end %>
+   <div id='map'></div>
+
+  <style>
+  #map {
+    height: 200px;
+    width: 100%;
+  }
+  </style>
+
+  <!-- js部分 -->
+  <script>
+  //初期マップの設定
+  let map
+  let marker
+  function initMap(){
+    geocoder = new google.maps.Geocoder()
+
+    map = new google.maps.Map(document.getElementById('map'), {
+      center:  {lat: <%= post.lat %>, lng: <%= post.lng %>},
+      zoom: 15,
+    });
+
+    marker = new google.maps.Marker({
+      position:  {lat: <%= post.lat %>, lng: <%= post.lng %>},
+      map: map
+    });
+  }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer></script>
+
   <div class="text-center">
     <% if post.user == current_user %>
+     <p class="text-right"><%= link_to "地図を編集する",post_map_edit_path(post), data: {"turbolinks" => false},class: "btn btn-primary" %></p>
     <%= link_to '編集', edit_post_path, class: 'btn btn-primary w-50'%>
     <% end %>
   </div>

@@ -40,6 +40,8 @@ Rails.application.routes.draw do
   end
     # 投稿機能
     resources :posts do
+      #マップ編集
+      get "map/edit" => "posts#map_edit"
       #コメント・お気に入り機能
       resources :comments, only: [:create, :destroy]
       resource :likes, only: [:create, :destroy]
