@@ -1,17 +1,18 @@
 <div class="user_index">
-<table class='table'>
-  <thead>
-    <tr class="text-center">
-      <th>image</th>
-      <th>name</th>
-      <th>follow</th>
-      <th>follower</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-  <tbody>
+  <table class='table'>
+    <thead>
+      <tr class="text-center">
+        <th>image</th>
+        <th>name</th>
+        <th>follow</th>
+        <th>follower</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
     <% users.each do |user| %>
       <tr class="text-center">
+      <% if user.status == false %>
         <td><%= image_tag user.get_image,class:"plofile_index" %></td>
         <td><%= user.name %></td>
         <td><%= user.followings.count %></td>
@@ -27,10 +28,11 @@
         </td>
         <td><%= link_to 'Show', user %></td>
       </tr>
+      <% end %>
     <% end %>
-  </tbody>
+    </tbody>
   </table>
-  </div>
+</div>
 <div class="pagination">
   <%= paginate users %>
 </div>
