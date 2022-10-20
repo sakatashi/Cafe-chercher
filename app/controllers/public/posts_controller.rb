@@ -10,11 +10,7 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      if @post.is_draft == true
-        redirect_to posts_path, notice: "投稿しました。"
-      else
-        redirect_to posts_path, notice: "マイページの「下書き投稿」に保存しました。"
-      end
+        redirect_to posts_path,notice: "投稿しました"
     else
       redirect_to new_post_path(@post), alert: "入力内容をご確認ください。"
     end
@@ -31,10 +27,10 @@ class Public::PostsController < ApplicationController
     @shop_tags = @post.tags
     @user_post =@post.user
   end
-  
+
   def map_edit
   end
-  
+
   def edit
     @post = Post.find(params[:id])
   end
@@ -43,12 +39,8 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     if current_user == @post.user
       if @post.update(post_params)
-        if @post.is_draft == true
           redirect_to post_path(@post), notice: "更新しました。"
-        else
-          redirect_to post_path(@post),
-          notice: "マイページの「下書き投稿」に保存しました。"
-        end
+
       else
         redirect_to edit_post_path(@post), alert: "編集内容をご確認ください。"
       end

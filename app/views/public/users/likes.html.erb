@@ -5,7 +5,7 @@
       <div class="post_list">
       <% @like_posts.each do |post| %>
         <div class="post">
-         <%= link_to post_path(post.id) do %>
+         <%= link_to post_path(post.id) ,data: {"turbolinks" => false}  do %>
          <%= image_tag post.get_image,class:"image_index"%>
          <% end %>
          <p><strong><%= post.title %></strong></p>
