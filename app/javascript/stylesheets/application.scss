@@ -265,6 +265,10 @@ footer a {
   height: 160px;
 }
 
+.new-img{
+  width: 400px;
+  object-fit: cover;
+}
 /*画面幅によって文字サイズ変更*/
 html {
   font-size: 75%;
