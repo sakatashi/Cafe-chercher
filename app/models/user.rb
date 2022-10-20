@@ -25,6 +25,11 @@ class User < ApplicationRecord
     end
     image
   end
+  
+  #退会ユーザはログインできないようにする
+  def active_for_authentication?
+    super && (self.status == false)
+  end
 
   # フォロー機能
   # フォローする
