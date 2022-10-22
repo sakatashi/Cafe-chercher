@@ -3,6 +3,7 @@
     <div class="col-12">
       <h5 class="text-center"><i class="fas fa-pencil-alt"></i> 下書き投稿</h5>
       <div class="post_list">
+      <% if @posts.exists? %>
       <% @posts.each do |post| %>
         <div class="post">
          <%= link_to post_path(post),data: {"turbolinks" => false}  do %>
@@ -13,6 +14,9 @@
          <p><%= post.shop_place %></p>
          <p><i class="far fa-comment-alt"></i><%= link_to " #{post.comments.count} ", post_path(post.id) %></p>
         </div>
+      <% end %>
+      <% else %>
+        <p>下書き投稿はありません</p>
       <% end %>
       </div>
     </div>

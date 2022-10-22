@@ -8,12 +8,13 @@ class Public::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.user_id = current_user.id
-    if @post.save
-        redirect_to posts_path,notice: "投稿しました"
-    else
-      redirect_to new_post_path(@post), alert: "入力内容をご確認ください。"
-    end
+   if @post.user_id = current_user.id
+     if @post.save
+       redirect_to post_path(@post),notice: ((@post.is_draft == "draft") ? "マイページの下書き投稿に保存しました。" : "投稿しました。")
+     else
+       redirect_to new_post_path(@post), alert: "入力内容をご確認ください。"
+     end
+   end
   end
 
   def index
@@ -39,8 +40,7 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     if current_user == @post.user
       if @post.update(post_params)
-          redirect_to post_path(@post), notice: "更新しました。"
-
+          redirect_to post_path(@post),notice: ((@post.is_draft == "draft") ? "マイページの下書き投稿に保存しました。" : "更新しました。")
       else
         redirect_to edit_post_path(@post), alert: "編集内容をご確認ください。"
       end
@@ -59,9 +59,9 @@ class Public::PostsController < ApplicationController
     end
   end
 
-#非公開ページ
+#下書き投稿ページ
   def draft_index
-    @posts = current_user.posts.draft
+    @posts = current_user.posts.draft.reverse_order
   end
 
    # こだわりタグ検索結果ページ
