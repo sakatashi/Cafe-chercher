@@ -1,12 +1,11 @@
 <div class="col-lg-6 mt-4">
   <div class="post_show">
   <h5><strong><%= post.title %></strong></h5>
-  <p><%= render_with_tags(post.content) %></p>
-
+  <p><%= simple_format(post.content) %></p>
   <table class="table">
     <tr>
       <th>店名</th>
-      <td><%= @post.shop_name %></td>
+      <td><%= post.shop_name %></td>
     </tr>
     <tr>
       <th>アクセス</th>
@@ -14,7 +13,7 @@
     </tr>
     <tr>
       <th>平均予算</th>
-      <td><%= post.shop_price_i18n  %>　円</td>
+      <td><%= post.shop_price %>　円</td>
     </tr>
     <tr>
       <th>定休日</th>
@@ -25,7 +24,8 @@
         <td class="like-btn"><%= render 'public/likes/btn', post: post %></td>
         <td></td>
     </tr>
-    <tr><th>こだわり</th>
+    <tr>
+      <th>こだわり</th>
       <% unless post.shop_tags.present? %>
       <% else %>
       <td>
@@ -36,9 +36,11 @@
        <% end %>
        </span>
       <% end %>
-      </td></tr>
+      </td>
+    </tr>
       <% end %>
   </table>
+  <!--地図機能-->
   <h5><i class="fas fa-map-marker-alt"></i> 地図情報</h5>
     <% if post.lat == 0.0 && post.lng == 0.0 || post.lat == nil && post.lng == nil %>
     <p>※現在、地図情報は登録されていません。</p>
