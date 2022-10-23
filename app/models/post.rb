@@ -15,7 +15,7 @@ class Post < ApplicationRecord
   #下書き機能
   enum is_draft: { published: 0, draft: 1 }
   #平均予算
-  enum shop_price: {"~999":0,"1000~1999":1,"2000~2999":2 }
+  enum shop_price: {"~999": 0,"1000~1999": 1,"2000~2999": 2 }
 
   # 投稿画像設定
   has_one_attached :image
@@ -27,12 +27,12 @@ class Post < ApplicationRecord
       image
   end
 
-   # いいね機能
+  # いいね機能
   def liked_by?(user)
     likes.exists?(user_id: user.id)
   end
 
-# ハッシュタグ機能（投稿保存前に実行する）
+  # ハッシュタグ機能（投稿保存前に実行する）
   after_create do
     post = Post.find_by(id: self.id)
     tags = self.content.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
