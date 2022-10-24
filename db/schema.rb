@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_17_054554) do
+ActiveRecord::Schema.define(version: 2022_10_24_053844) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -50,6 +50,14 @@ ActiveRecord::Schema.define(version: 2022_10_17_054554) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "chats", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
+    t.string "message", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -96,6 +104,11 @@ ActiveRecord::Schema.define(version: 2022_10_17_054554) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "rooms", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "shop_taggings", force: :cascade do |t|
     t.integer "post_id", null: false
     t.integer "shop_tag_id", null: false
@@ -114,6 +127,13 @@ ActiveRecord::Schema.define(version: 2022_10_17_054554) do
 
   create_table "tags", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_rooms", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
