@@ -74,10 +74,17 @@
   width: 230px;
 }
 
+.newpost_flame a {
+  text-decoration: none; /*リンクの下線を*/
+  color: #000;
+}
+
 .newpost img {
   margin: 0;
   padding: 0;
 }
+
+
 /*新規投稿ページ*/
 .post_form{
   padding: 0.2em 0.5em;
