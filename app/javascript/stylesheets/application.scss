@@ -59,7 +59,7 @@
   text-shadow: 3px 3px 5px rgba(14, 51, 29, 0.5)
 }
 .newpost {
-  display: flex; /*横並び*/
+  display: flex; 
   flex-wrap: wrap;
   justify-content: space-evenly; /*各アイテムを均等に配置 間隔も均等*/
 }
@@ -269,6 +269,77 @@ footer a {
   width: 400px;
   object-fit: cover;
 }
+.my-message {
+ text-align: right;
+}
+/*自分のメッセージ（右側）*/
+// メッセージの装飾
+.my-message p {
+  display: inline-block;
+  position: relative;
+  margin: 0 10px 0 0;
+  padding: 8px;
+  border-radius: 12px;
+  background: 	#F9C1F9;
+  max-width: 250px; /*吹き出しの最大横幅,超えると折り返す*/
+  font-size: 14px;
+  text-align: left;
+}
+
+// 吹き出しに使う三角のパーツ
+// afterでメッセージに装飾をつける
+.my-message p:after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: -19px;
+  border: 8px solid transparent; /*content: "";にボーダーをつけ一旦transparentで透明にする*/
+  border-left: 18px solid 	#F9C1F9; /*上記の左側のみカラーをつける*/
+  // 傾きの調整
+  -webkit-transform: rotate(-35deg);
+  transform: rotate(-35deg);
+}
+// 相手のメッセージ表示欄
+// アイコン
+.chat-user-image {
+  float: left;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+// 相手のメッセージの装飾
+.user-message {
+  display: inline-block;
+  position: relative;
+  margin: 15px 0 0 10px;
+  padding: 10px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #90CECB;
+}
+
+// 吹き出しに使う三角のパーツ
+// afterでメッセージに装飾をつける
+.user-message:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  left: -19px; /*マイナス値にすることで左側に寄せている*/
+  border: 8px solid transparent;
+  border-right: 18px solid 	#90CECB;
+  // 傾きの調整
+  -webkit-transform: rotate(35deg);
+  transform: rotate(35deg);
+}
+
+.user-message p {
+  margin: 0;
+  font-size: 14px;
+}
+
+
 /*画面幅によって文字サイズ変更*/
 html {
   font-size: 75%;
