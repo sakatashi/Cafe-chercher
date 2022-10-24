@@ -59,7 +59,7 @@
   text-shadow: 3px 3px 5px rgba(14, 51, 29, 0.5)
 }
 .newpost {
-  display: flex; 
+  display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly; /*各アイテムを均等に配置 間隔も均等*/
 }
@@ -339,6 +339,11 @@ footer a {
   font-size: 14px;
 }
 
+.comment-user-image {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
 
 /*画面幅によって文字サイズ変更*/
 html {
