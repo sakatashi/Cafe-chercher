@@ -44,7 +44,7 @@ Post.create!(
     { title: "隠れ家カフェ",
       image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-post1.JPG"),
       filename: "sample-post1.jpg"),
-      content: "辿り着くまで少し迷いました！笑\r\n\r\nアイスのウィンナーコーヒーとテリーヌショコラを注文！\r\n\r\n手書きのメニューや店内が独特な世界観でした！\r\n\r\n＃cafe#広島カフェ#尾道カフェ#おしゃれカフェ",
+      content: "辿り着くまで少し迷いました！笑\r\n\r\nアイスのウィンナーコーヒーとテリーヌショコラを注文！\r\n\r\n手書きのメニューや店内が独特な世界観でした！\r\n\r\n#cafe#広島カフェ#尾道カフェ#おしゃれカフェ",
       user_id: users[0].id,
       shop_name: "satie coffe",
       shop_place: "尾道駅",
