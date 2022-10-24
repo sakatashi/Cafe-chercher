@@ -58,6 +58,10 @@ Rails.application.routes.draw do
     get "post/tag/:name" => "posts#tag"
     #こだわりタグ検索結果ページ
     get "post/shop_tag/:name" => "posts#shop_tag"
+     # チャット機能
+       # チャット機能
+    get "chat/:id" => "chats#show", as: "chat"
+    resources :chats, only: [:create]
   end
 
   root to: 'public/homes#top'

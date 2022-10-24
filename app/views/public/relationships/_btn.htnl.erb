@@ -5,3 +5,8 @@
     <%= link_to "フォローする", user_relationships_path(user.id),method: :post, class: "btn btn-outline-success btn-sm mb-2" %>
   <% end %>
 <% end %>
+<% if current_user != user && current_user.following?(user) && user.following?(current_user) %>
+  <%= link_to chat_path(user.id), class: "ml-2 chat-btn btn btn-sm btn-outline-secondary" do %>
+    <i class="far fa-envelope"></i>
+  <% end %>
+<% end %>
