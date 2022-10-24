@@ -59,7 +59,7 @@
   text-shadow: 3px 3px 5px rgba(14, 51, 29, 0.5)
 }
 .newpost {
-  display: flex; /*横並び*/
+  display: flex; 
   flex-wrap: wrap;
   justify-content: space-evenly; /*各アイテムを均等に配置 間隔も均等*/
 }
@@ -283,9 +283,10 @@ footer a {
   background: 	#F9C1F9;
   max-width: 250px; /*吹き出しの最大横幅,超えると折り返す*/
   font-size: 14px;
+  text-align: left;
 }
 
-// 吹き出しに使うの三角のパーツ
+// 吹き出しに使う三角のパーツ
 // afterでメッセージに装飾をつける
 .my-message p:after {
   content: "";
@@ -300,13 +301,11 @@ footer a {
 }
 // 相手のメッセージ表示欄
 // アイコン
-.chat-userimage{
+.chat-user-image {
   float: left;
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
   border-radius: 50%;
-  object-fit: cover;
-  margin: 12px 5px 5px 0;
 }
 
 // 相手のメッセージの装飾
@@ -320,7 +319,7 @@ footer a {
   background: #90CECB;
 }
 
-// 吹き出しに使うの三角のパーツ
+// 吹き出しに使う三角のパーツ
 // afterでメッセージに装飾をつける
 .user-message:after {
   content: "";

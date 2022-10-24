@@ -8,12 +8,14 @@
     </div>
   <% else %>
     <!--相手のメッセージ（左側）-->
+    <div class="mt-1">
       <%= link_to user_path(user) do %>
-        <%= image_tag user.get_image, class: "user-chat-image" %>
+        <%= image_tag user.get_image, class: "chat-user-image" %>
       <% end %>
       <div class="user-message"> <!--相手の吹き出し-->
         <p><%= chat.message %></p> <!--相手のメッセージ-->
       </div>
-      <div class="small"><%= l chat.created_at %></div> <!--送信日時-->
+      <div class=" small"><%= l chat.created_at %></div> <!--送信日時-->
+    </div>
   <% end %>
 <% end %>
