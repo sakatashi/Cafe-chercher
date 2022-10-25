@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-md-center">
-         <div class="col-12">
+    <div class="col-12">
       <h5 class="text-center"><i class="fas fa-search fa-xs"></i>こだわりに 「<%= @shop_tag.name %>」を含む投稿 (<%= @post.count %>件)</h5>
       <% if @post.present? %>
          <%= render 'public/posts/index', posts: @post %>

@@ -1,6 +1,6 @@
 <div class="col-md-4">
   <div class="plofile_image">
-    <%= image_tag user.get_image,class:"user_image"%>
+    <%= image_tag user.get_image,class: "user_image"%>
   </div>
   <div class="text-center my-3">
     <% if current_user != user %>
@@ -48,9 +48,9 @@
         </td>
     </tr>
   </table>
-   <p><%=link_to"いいねした投稿を見る",likes_user_path(user),class:'btn btn-outline-success w-100' %></p>
+   <p><%=link_to"いいねした投稿を見る",likes_user_path(user),class: 'btn btn-outline-success w-100' %></p>
   <% if user == current_user%>
-   <p><%=link_to"下書き投稿を見る",draft_index_path(user),class:'btn btn-outline-info w-100'%></p>
+   <p><%=link_to"下書き投稿を見る",draft_index_path(user),class: 'btn btn-outline-info w-100'%></p>
    <%= link_to '編集', edit_user_path, class: 'btn btn-outline-primary w-100'%>
   <% end %>
 </div>
