@@ -24,100 +24,99 @@
   <i class="fas fa-yen-sign"></i> <%= f.label :shop_price,"平均予算" %><br>
   <%= f.collection_radio_buttons :shop_price,Post.shop_prices_i18n, :first,:last%><br>
 
-<div class='form-group'>
-  <i class="far fa-star"></i> <%= f.label :shop_tag_ids,'こだわり（当てはまるものにチェック)' %><br>
-  <%= f.collection_check_boxes(:shop_tag_ids, ShopTag.all, :id, :name) do |tag| %>
-  <div class='form-check'>
-    <%= tag.label class: 'form-check-label' do %>
-    <%= tag.check_box class: 'form-check-input' %>
-    <%= tag.text %>
-    <% end %>
+  <div class='form-group'>
+    <i class="far fa-star"></i> <%= f.label :shop_tag_ids,'こだわり（当てはまるものにチェック)' %><br>
+    <%= f.collection_check_boxes(:shop_tag_ids, ShopTag.all, :id, :name) do |tag| %>
+    <div class='form-check'>
+      <%= tag.label class: 'form-check-label' do %>
+      <%= tag.check_box class: 'form-check-input' %>
+      <%= tag.text %>
+      <% end %>
+    </div>
+      <% end %>
   </div>
-    <% end %>
-</div>
     <%= f.hidden_field :lat,:value =>"緯度", id: :lat %>
     <%= f.hidden_field :lng,:value =>"経度", id: :lng %>
-<!--新規投稿のみ投稿フォームから地図登録できる-->
-        <h5 class="mt-4"><i class="fas fa-map-marked-alt"></i> 地図登録</h5>
-        <div class="my-3">
-          最寄り駅・店名・住所などで検索<br />
-          <i class="fas fa-map-marker-alt"></i> ピンを移動させ位置の調整ができます。
-        </div>
-        <div class="m-2 mb-3">
-          <div>最寄駅・住所・店名などで検索する</div>
-          <input id="address" type="textbox"  placeholder="(例) 東京駅" class="search-form-group">
-          <input type="button" value="検索" onclick="codeAddress()" class="btn btn-outline-secondary">
-        </div>
-        <div id='map'></div>
+    <!--新規投稿のみ投稿フォームから地図登録できる-->
+    <h5 class="mt-4"><i class="fas fa-map-marked-alt"></i> 地図登録</h5>
+    <div class="my-3">
+      最寄り駅・店名・住所などで検索<br />
+      <i class="fas fa-map-marker-alt"></i> ピンを移動させ位置の調整ができます。
+    </div>
+    <div class="m-2 mb-3">
+      <div>最寄駅・住所・店名などで検索する</div>
+      <input id="address" type="textbox"  placeholder="(例) 東京駅" class="search-form-group">
+      <input type="button" value="検索" onclick="codeAddress()" class="btn btn-outline-secondary">
+    </div>
+    <div id='map'></div>
 
-        <!--表示するマップのサイズ-->
-        <style>
-          #map {
-            height: 400px;
-            width: 100%;
-          }
-        </style>
-        <script>
+    <!--表示するマップのサイズ-->
+    <style>
+      #map {
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+    <script>
 
-          //初期マップの設定
-          let map
-          let marker
-          function initMap(){
-            geocoder = new google.maps.Geocoder()
+      //初期マップの設定
+      let map
+      let marker
+      function initMap(){
+        geocoder = new google.maps.Geocoder()
 
-            map = new google.maps.Map(document.getElementById('map'), {
-              center:  {lat: 35.6803997, lng:139.7690174},  //東京
-              zoom: 15,
+        map = new google.maps.Map(document.getElementById('map'), {
+          center:  {lat: 35.6803997, lng:139.7690174},  //東京
+          zoom: 15,
+        });
+      }
+
+      //検索後のマップ作成
+      let geocoder
+      let aft
+      function codeAddress(){
+        let inputAddress = document.getElementById('address').value;
+        geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+          if (status == 'OK') {
+            //マーカーが複数できないようにする
+            if (aft == true){
+                marker.setMap(null);
+            }
+
+            //新しくマーカーを作成する
+            map.setCenter(results[0].geometry.location);
+                marker = new google.maps.Marker({
+                map: map,
+                position: results[0].geometry.location,
+                draggable: true // ドラッグ可能にする
             });
+
+            //二度目以降か判断
+            aft = true
+
+            //検索した時に緯度経度を入力する
+            document.getElementById('lat').value = results[0].geometry.location.lat();
+            document.getElementById('lng').value = results[0].geometry.location.lng();
+
+            // マーカーのドロップ（ドラッグ終了）時のイベント
+            google.maps.event.addListener( marker, 'dragend', function(ev){
+                // イベントの引数evの、プロパティ.latLngが緯度経度
+                document.getElementById('lat').value = ev.latLng.lat();
+                document.getElementById('lng').value = ev.latLng.lng();
+              });
+          } else {
+            alert('該当する結果がありません。');
           }
+        });
+      }
+    </script>
 
-          //検索後のマップ作成
-          let geocoder
-          let aft
-          function codeAddress(){
-            let inputAddress = document.getElementById('address').value;
-            geocoder.geocode( { 'address': inputAddress}, function(results, status) {
-              if (status == 'OK') {
-                //マーカーが複数できないようにする
-                if (aft == true){
-                    marker.setMap(null);
-                }
-
-                //新しくマーカーを作成する
-                map.setCenter(results[0].geometry.location);
-                    marker = new google.maps.Marker({
-                    map: map,
-                    position: results[0].geometry.location,
-                    draggable: true // ドラッグ可能にする
-                });
-
-                //二度目以降か判断
-                aft = true
-
-                //検索した時に緯度経度を入力する
-                document.getElementById('lat').value = results[0].geometry.location.lat();
-                document.getElementById('lng').value = results[0].geometry.location.lng();
-
-                // マーカーのドロップ（ドラッグ終了）時のイベント
-                google.maps.event.addListener( marker, 'dragend', function(ev){
-                    // イベントの引数evの、プロパティ.latLngが緯度経度
-                    document.getElementById('lat').value = ev.latLng.lat();
-                    document.getElementById('lng').value = ev.latLng.lng();
-                  });
-              } else {
-                alert('該当する結果がありません。');
-              }
-            });
-          }
-        </script>
-
-      <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer></script>
-      <br />
-<div class="form-group">
-  <i class="fas fa-pencil-alt"></i> <%= f.label :is_draft,"下書き/投稿" %><br>
-  <%= f.select :is_draft, Post.is_drafts.keys.map { |k| [t("enums.post.is_draft.#{k}"),k]}, {}, {class: "custom-select w-50"} %>
-</div><br>
-<%= f.submit '投稿する', class: "btn btn-success w-50" %>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer></script>
+    <br />
+  <div class="form-group">
+    <i class="fas fa-pencil-alt"></i> <%= f.label :is_draft,"下書き/投稿" %><br>
+    <%= f.select :is_draft, Post.is_drafts.keys.map { |k| [t("enums.post.is_draft.#{k}"),k]}, {}, {class: "custom-select w-50"} %>
+  </div><br>
+  <%= f.submit '投稿する', class: "btn btn-success w-50" %>
 <% end %>
-</div>
 </div>
