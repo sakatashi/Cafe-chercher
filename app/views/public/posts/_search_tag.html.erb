@@ -1,9 +1,4 @@
    <%= form_tag posts_path, method: :get, class: 'boards__searchForm' do %>
-      <%= select_tag :shop_tag_ids,
-                     options_from_collection_for_select(ShopTag.all, :id, :name, params[:tag_ids]),
-                     {
-                       prompt: 'こだわり選択で検索',
-                       onchange: 'submit(this.form);'
-                     }
-      %>
-    <% end %>
+      <%= select_tag :shop_tag_ids,options_from_collection_for_select(ShopTag.all, :id, :name, params[:tag_ids]),
+      {prompt: 'こだわり選択で検索',onchange: 'submit(this.form);'}%>
+   <% end %>

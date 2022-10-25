@@ -1,9 +1,11 @@
 <% chats.each do |chat| %>
   <% if chat.user_id == current_user.id %>
     <!--自分のメッセージ（右側）-->
-    <div class="my-message"><!--自分の吹き出し-->
+    <div class="my-message">
       <p><%= chat.message %></p>
-      <div class="small"><%= l chat.created_at %></div> <!--送信日時-->
+      <div class="small">
+        <%= l chat.created_at %>
+      </div> 
     </div>
   <% else %>
     <!--相手のメッセージ（左側）-->
@@ -11,10 +13,12 @@
       <%= link_to user_path(user) do %>
         <%= image_tag user.get_image, class: "chat-user-image" %>
       <% end %>
-      <div class="user-message"> <!--相手の吹き出し-->
-        <p><%= chat.message %></p> <!--相手のメッセージ-->
+      <div class="user-message">
+        <p><%= chat.message %></p> 
       </div>
-      <div class=" small"><%= l chat.created_at %></div> <!--送信日時-->
+      <div class=" small">
+        <%= l chat.created_at %>
+      </div>
     </div>
   <% end %>
 <% end %>

@@ -2,7 +2,7 @@
 <% if user_signed_in? %>
   <%= form_with url: search_path, method: :get, local: true do |f| %>
     <%= f.text_field :keyword, placeholder: 'キーワードを入力' %>
-    <%= f.submit '検索',class:"btn btn01" %>
+    <%= f.submit '検索',class: "btn btn01" %>
   <% end %>
 <% end %>
 </div>
