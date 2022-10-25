@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row justify-content-md-center">
-     <div class="col-md-auto">
-       <h5 class="text-center"><i class="fas fa-pencil-alt"></i>編集する</h5>
-       <%= form_with model: @post, url: post_path do |f|%>
+    <div class="col-md-auto">
+      <h5 class="text-center"><i class="fas fa-pencil-alt"></i>編集する</h5>
+      <%= form_with model: @post, url: post_path do |f|%>
        <div class="post_form">
          <i class="fas fa-camera"></i> <%= f.label :image,"画像を選択する" %><br>
          <%= f.file_field :image,accept: 'image/*' %><br>
