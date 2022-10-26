@@ -48,9 +48,13 @@
         </td>
     </tr>
   </table>
-   <p><%=link_to"いいねした投稿を見る",likes_user_path(user),class: 'btn btn-outline-success w-100' %></p>
+　<%=link_to likes_user_path(user),class: 'btn btn-outline-success w-100' do %>
+    <i class="fas fa-heart"></i>いいねした投稿 (<%= current_user.likes.count %>)
+  <% end %>
   <% if user == current_user%>
-   <p><%=link_to"下書き投稿を見る",draft_index_path(user),class: 'btn btn-outline-info w-100'%></p>
-   <%= link_to '編集', edit_user_path, class: 'btn btn-outline-primary w-100'%>
+    <%=link_to draft_index_path(user),class: 'mt-2 btn btn-outline-info w-100' do %>
+    <i class="fas fa-lock"></i> 下書き投稿 (<%= current_user.posts.draft.count %>)
+    <% end %>
+   <%= link_to '編集', edit_user_path, class: 'mt-2 btn btn-outline-primary w-100'%>
   <% end %>
 </div>
