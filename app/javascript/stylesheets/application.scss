@@ -2,9 +2,11 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 .main {
-  min-height: 1000px;
+  min-height: 1000px;/*高さの最小値を指定*/
 }
-
+li {
+  white-space: nowrap; /*自動的な折り返しを禁止する*/
+}
 .login {
   padding: 20px;
   margin-top: 30px;
