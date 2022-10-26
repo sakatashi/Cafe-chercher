@@ -1,1 +1,3 @@
-$(".comments_area").html("<%= j(render 'public/comments/index', post: @post) %>");
+$(".comments-area").html("<%= j(render 'public/comments/index', post: @post) %>");
+$(".new-comment").html('<%= j(render "public/comments/form") %>');
+$("#comment_comment").val("")

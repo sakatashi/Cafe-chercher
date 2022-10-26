@@ -1,3 +1,4 @@
-$(".comments_area").html("<%= j(render 'public/comments/index', post: @post) %>");
-<!--フォームを送信したあとにフォームの値を空にします-->
-$("#comment_comment").val('');
+$(".comments-area").html("<%= j(render 'public/comments/index', post: @post) %>");
+$(".new-comment").html('<%= j(render "public/comments/form") %>');
+<!--フォームを送信したあとにフォームの値を空にする-->
+$("#comment_comment").val("")
