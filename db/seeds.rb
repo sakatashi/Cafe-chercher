@@ -19,21 +19,21 @@ users = User.create!(
       password: "password",
       image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user1.jpg"),
       filename: "sample-user1.jpg"),
-      introduction: "はじめまして！🐤よろしくお願いします。"},
+      introduction: "はじめまして！🐤\r\nよろしくお願いします。"},
 
     { email: "koguma@test.com",
       name: "こぐま",
       password: "password",
       image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user2.jpg"),
       filename: "sample-user2.jpg"),
-      introduction: "はじめまして！🍠カフェ巡りが好きです。東京周辺のカフェ投稿します！" },
+      introduction: "はじめまして！🍠\r\nカフェ巡りが好きです。\r\n東京周辺のカフェ投稿します！" },
 
     { email: "rabi@test.com",
       name: "rabi",
       password: "password",
       image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user3.jpg"),
       filename: "sample-user3.jpg"),
-      introduction: "はじめまして！🐰仲良くしてください。"}
+      introduction: "はじめまして！🐰\r\n仲良くしてください。"}
   ]
 )
 
