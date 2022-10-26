@@ -1,6 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!
-   before_action :post_choice, only: [:show, :map_edit, :update, :destroy]
+  before_action :post_choice, only: [:show, :map_edit, :update, :destroy]
 
   def new
     @post = Post.new
