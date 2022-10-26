@@ -8,20 +8,21 @@ li {
   white-space: nowrap; /*自動的な折り返しを禁止する*/
 }
 .login {
-  padding: 20px;
-  margin-top: 30px;
-  box-shadow : 0px -2px 13px 4px #a6a6a6 ;
+　padding: 0.2em 0.5em;
+  margin: 2em 0;
+  background: #e5d2c5;
+  box-shadow: 0px 0px 0px 10px #e5d2c5;
+  border: dashed 2px white;
   text-align: center;
-  border-radius: 240px 15px 100px 15px / 15px 200px 15px 185px;
-  width: 480px;
 }
 
 .sign_up {
-  padding: 20px;
-  margin-top: 30px;
-  box-shadow : 0px -2px 13px 4px #a6a6a6 ;
+  padding: 0.2em 0.5em;
+  margin: 2em 0;
+  background: #e5d2c5;
+  box-shadow: 0px 0px 0px 10px #e5d2c5;
+  border: dashed 2px white;
   text-align: center;
-  border-radius: 240px 15px 100px 15px / 15px 200px 15px 185px;
 }
 /*トップページ*/
 .top_list {
