@@ -1,7 +1,7 @@
 <div class ="container" >
   <div class="row">
     <div class="col-12">
-      <h5 class="text-center"><i class="far fa-heart"></i><%= @user.name %>さんのいいねした投稿(<%= current_user.likes.count %>件)</h5>
+      <h5 class="text-center"><i class="far fa-heart"></i><%= @user.name %>さんのいいねした投稿(<%= @user.likes.count %>件)</h5>
       <div class="post_list">
       <% if @like_posts.present? %>
       <% @like_posts.each do |post| %>

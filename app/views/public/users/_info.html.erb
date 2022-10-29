@@ -49,7 +49,7 @@
     </tr>
   </table>
 　<%=link_to likes_user_path(user),class: 'btn btn-outline-success w-100' do %>
-    <i class="fas fa-heart"></i>いいねした投稿 (<%= current_user.likes.count %>)
+    <i class="fas fa-heart"></i>いいねした投稿 (<%= user.likes.count %>)
   <% end %>
   <% if user == current_user%>
     <%=link_to draft_index_path(user),class: 'mt-2 btn btn-outline-info w-100' do %>
