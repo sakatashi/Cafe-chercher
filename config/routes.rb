@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 	# ユーザ
   scope module: :public do
     get "about" => "homes#about"
+    resources :notifications, only: [:index, :destroy]
     resources :users, only: [:show,:index, :edit, :update] do
       # フォロー機能
       resource :relationships, only: [:create, :destroy]
@@ -63,6 +64,7 @@ Rails.application.routes.draw do
     get "chat/:id" => "chats#show", as: "chat"
     resources :chats, only: [:create]
   end
+
 
   root to: 'public/homes#top'
 end

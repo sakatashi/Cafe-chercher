@@ -46,6 +46,9 @@
     <%=link_to draft_index_path(user),class: 'mt-2 btn btn-outline-info w-100' do %>
     <i class="fas fa-lock"></i> 下書き投稿 (<%= current_user.posts.draft.count %>)
     <% end %>
+    <%=link_to notifications_path(user),class: 'mt-2 btn btn-outline-info w-100' do %>
+    <i class="fas fa-bell"></i> 通知一覧
+    <% end %>
    <%= link_to '編集', edit_user_path, class: 'mt-2 btn btn-outline-primary w-100'%>
   <% end %>
 </div>
