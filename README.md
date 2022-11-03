@@ -1,4 +1,4 @@
-# Cafe-chercher
+# ![logo](https://user-images.githubusercontent.com/109025282/197979880-b7c6480b-0905-4416-8591-50927bd67a03.jpg)
 
 ## サイト概要
 
@@ -22,7 +22,6 @@
 ## 設計書
 ### ER図
 
-![cafe-chercher drawio (1)](https://user-images.githubusercontent.com/109025282/192950289-77c13c42-8c79-43e9-8789-45f2360ade9c.png)
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -30,3 +29,7 @@
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
+
+## 使用素材
+* 画像素材(https://www.photo-ac.com/)
+* ロゴ素材(https://www.canva.com/)
