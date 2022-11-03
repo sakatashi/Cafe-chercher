@@ -3,7 +3,7 @@
 one:
   visitor: one
   visited: one
-  micropost: one
+     post: one
   comment: one
   action: MyString
   checked: false
@@ -11,7 +11,7 @@ one:
 two:
   visitor: two
   visited: two
-  micropost: two
+     post: two
   comment: two
   action: MyString
   checked: false
