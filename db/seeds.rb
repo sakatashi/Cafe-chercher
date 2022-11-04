@@ -187,11 +187,13 @@ Comment.create!(
   [
     { user_id: 1,
       post_id: 3,
-      comment: "チーズケーキ美味しそうですね！😀"
+      comment: "チーズケーキ美味しそうですね！😀",
+        score: 0.9e0
     },
     { user_id: 2,
       post_id: 1,
-      comment: "おしゃれですね！今度、尾道に行くので行ってみます👍"
+      comment: "おしゃれですね！今度、尾道に行くので行ってみます👍",
+        score: 0.9e0 
     }
   ]
 )
