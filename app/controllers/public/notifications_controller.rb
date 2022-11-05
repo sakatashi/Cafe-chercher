@@ -4,7 +4,7 @@ class Public::NotificationsController < ApplicationController
     @notifications = current_user.passive_notifications
     #通知画面を開くとcheckedをtrueにして通知確認済にする
     @notifications.where(checked: false).each do |notification|
-      notification.update_attributes(checked: true)
+      notification.update(checked: true)
     end
   end
 
