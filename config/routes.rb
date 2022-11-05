@@ -29,7 +29,6 @@ Rails.application.routes.draw do
 	# ユーザ
   scope module: :public do
     get "about" => "homes#about"
-    resources :notifications, only: [:index, :destroy]
     resources :users, only: [:show,:index, :edit, :update] do
       # フォロー機能
       resource :relationships, only: [:create, :destroy]
@@ -37,8 +36,8 @@ Rails.application.routes.draw do
       get "followers" => "relationships#followers", as: "followers"
       member do
       get :likes
+      end
     end
-  end
     # 投稿機能
     resources :posts do
       #マップ編集
@@ -59,10 +58,11 @@ Rails.application.routes.draw do
     get "post/tag/:name" => "posts#tag"
     #こだわりタグ検索結果ページ
     get "post/shop_tag/:name" => "posts#shop_tag"
-     # チャット機能
-       # チャット機能
+    # チャット機能
     get "chat/:id" => "chats#show", as: "chat"
     resources :chats, only: [:create]
+    #通知機能
+    resources :notifications, only: [:index, :destroy]
   end
 
 
