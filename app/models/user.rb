@@ -16,10 +16,10 @@ class User < ApplicationRecord
   has_many :user_rooms
   has_many :chats
   has_many :rooms, through: :user_rooms
-  
-  has_many :active_notifications, foreign_key:"visitor_id", class_name: "Notification", dependent: :destroy
-  has_many :passive_notifications, foreign_key:"visited_id", class_name: "Notification", dependent: :destroy
-  
+
+  has_many :active_notifications, foreign_key: :visitor_id, class_name: "Notification", dependent: :destroy
+  has_many :passive_notifications, foreign_key: :visited_id, class_name: "Notification", dependent: :destroy
+
   validates :name, presence: true, length: { maximum: 20 }
   validates :email,presence: true
 
@@ -51,7 +51,7 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
-  
+
   #通知機能（フォロー）
   def create_notification_follow!(current_user)
     #すでに通知が作成されているか確認
@@ -64,7 +64,7 @@ class User < ApplicationRecord
       notification.save if notification.valid?
     end
   end
-  
+
   # ゲストログイン機能
    def self.guest
     find_or_create_by!(name: 'guestuser', email: 'guest@example.com') do |user|

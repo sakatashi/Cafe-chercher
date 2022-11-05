@@ -13,10 +13,10 @@ module Public::NotificationsHelper
     when 'like'
       tag.a(notification.visitor.name, href: user_path(@visitor)) + 'が' + tag.a('あなたの投稿', href: post_path(notification.post_id)) + 'にいいねしました'
     when 'comment' then
-      #コメントの内容と投稿のタイトルを取得　      
+      #コメントの内容と投稿のタイトルを取得
+      #byebug
       @comment = Comment.find_by(id: @visitor_comment)
-      @comment_content =@comment.content
-      @post_title =@comment.post.title
+      @post_title = @comment.post.title
       tag.a(@visitor.name, href: user_path(@visitor)) + 'が' + tag.a("#{@post_title}", href: post_path(notification.post_id)) + 'にコメントしました'
     end
   end

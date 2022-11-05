@@ -8,7 +8,6 @@ class Public::CommentsController < ApplicationController
     @comment.score = Language.get_data(comment_params[:comment])
     @comment.save
     @comment = Comment.new
-    @post = @comment.post
     @post.create_notification_comment!(current_user, @comment.id)
   end
 
