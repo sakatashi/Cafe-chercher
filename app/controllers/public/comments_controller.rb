@@ -8,6 +8,7 @@ class Public::CommentsController < ApplicationController
     @comment.score = Language.get_data(comment_params[:comment])
     @comment.save
     @post.create_notification_comment!(current_user, @comment.id)
+    @comment = Comment.new
   end
 
   def destroy
