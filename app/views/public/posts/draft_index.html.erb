@@ -1,7 +1,7 @@
 <div class ="container" >
   <div class="row">
     <div class="col-12">
-      <h5 class="text-center"><i class="fas fa-pencil-alt"></i> 下書き投稿(<%= current_user.posts.draft.count %>件)</h5>
+      <h5 class="text-center"><i class="fas fa-lock"></i> 下書き投稿(<%= current_user.posts.draft.count %>件)</h5>
       <div class="post_list">
       <% if @posts.exists? %>
       <% @posts.each do |post| %>
