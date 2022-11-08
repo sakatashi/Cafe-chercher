@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
-
   # ゲストユーザ　ログイン
   devise_scope :user do
     post "users/guest_sign_in", to: "public/sessions#guest_sign_in"
@@ -35,6 +34,7 @@ Rails.application.routes.draw do
       resource :relationships, only: [:create, :destroy]
       get "followings" => "relationships#followings", as: "followings"
       get "followers" => "relationships#followers", as: "followers"
+      # チャット一覧
       get "chat_rooms"
       member do
       get :likes
@@ -64,7 +64,5 @@ Rails.application.routes.draw do
     get "chat/:id" => "chats#show", as: "chat"
     resources :chats, only: [:create]
   end
-
-
   root to: 'public/homes#top'
 end

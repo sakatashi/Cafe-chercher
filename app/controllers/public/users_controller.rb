@@ -62,6 +62,7 @@ class Public::UsersController < ApplicationController
     .where(id: follow_users)
     .where.not(id: current_user)
   end
+  
   private
 
   def user_params
