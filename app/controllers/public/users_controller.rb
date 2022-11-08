@@ -42,6 +42,7 @@ class Public::UsersController < ApplicationController
     likes= Like.where(user_id: @user.id).pluck(:post_id)
     @like_posts = Post.find(likes)
   end
+
   def follows
   user = User.find(params[:id])
   @users = user.following_user.page(params[:page]).per(3).reverse_order
@@ -51,6 +52,17 @@ class Public::UsersController < ApplicationController
   user = User.find(params[:id])
   @users = user.follower_user.page(params[:page]).per(3).reverse_order
   end
+
+  def chat_rooms
+    # 現在チャットルームのあるユーザー
+    user_rooms = current_user.rooms
+    follow_users = current_user.followers
+    @chat_room_users = User.joins(:rooms)
+    .where(rooms: { id: user_rooms })
+    .where(id: follow_users)
+    .where.not(id: current_user)
+  end
+  
   private
 
   def user_params

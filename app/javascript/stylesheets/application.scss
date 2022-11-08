@@ -381,8 +381,16 @@ footer a {
   max-width: 600px;
   height: 150px;
 }
-
+/*通知一覧*/
 .notification-index {
+  padding: 0.2em 0.5em;
+  margin: 2em 0;
+  background: #e5d2c5;
+  box-shadow: 0px 0px 0px 10px #e5d2c5;
+  border: dashed 2px white;
+}
+/*チャット一覧*/
+.user_chat {
   padding: 0.2em 0.5em;
   margin: 2em 0;
   background: #e5d2c5;
