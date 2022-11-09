@@ -134,7 +134,8 @@ footer a {
 }
 .new-img {
   width: 400px;
-  object-fit: contain;
+  height: 300px;
+  object-fit: cover; /*ボックスが画像で埋まるようにリサイズ*/
 }
 
 /*こだわりタグチェック欄*/
@@ -255,9 +256,9 @@ h2 {
 }
 
 .image_index{
-  width: 100%;
-  width: 250px;
-  height: 160px;
+  width: 280px;
+  height: 170px;
+  object-fit: cover;
 }
 /*投稿詳細ページ*/
 .post_show {
