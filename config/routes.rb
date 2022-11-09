@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 	# ユーザ
   scope module: :public do
     get "about" => "homes#about"
+     #通知機能
     resources :notifications, only: [:index, :destroy]
     resources :users, only: [:show,:index, :edit, :update] do
       # フォロー機能
@@ -40,8 +41,8 @@ Rails.application.routes.draw do
       get "draft_index" => "posts#draft_index"
       member do
       get :likes
+      end
     end
-  end
     # 投稿機能
     resources :posts do
       #マップ編集
@@ -54,7 +55,7 @@ Rails.application.routes.draw do
     get "user/unsubscribe" => "users#unsubscribe"
     #ユーザ退会処理
     patch "user/withdraw" => "users#withdraw"
-   
+
     #キーワード検索
     get 'search' => 'searches#search'
     # タグ検索結果ページ
