@@ -4,9 +4,32 @@
 .main {
   min-height: 1000px;/*高さの最小値を指定*/
 }
+
 li {
   white-space: nowrap; /*自動的な折り返しを禁止する*/
 }
+
+th {
+  white-space: nowrap; /*自動的な折り返しを禁止する*/
+}
+
+td {
+  white-space: nowrap;
+}
+
+footer {
+  background-color: #300;
+  width: 100%;
+  height: 120px;
+  text-align: center;
+  color: white;
+}
+
+footer a {
+  margin: 10px;
+}
+
+/*ログインページ*/
 .login {
 　padding: 0.2em 0.5em;
   margin: 2em 0;
@@ -15,7 +38,7 @@ li {
   border: dashed 2px white;
   text-align: center;
 }
-
+/*新規登録ページ*/
 .sign_up {
   padding: 0.2em 0.5em;
   margin: 2em 0;
@@ -66,7 +89,7 @@ li {
   font-size: 40px;
   text-shadow: 3px 3px 5px rgba(14, 51, 29, 0.5)
 }
-
+/*新着投稿表示*/
 .newpost {
   display: flex;
   flex-wrap: wrap;
@@ -90,10 +113,16 @@ li {
 }
 
 .newpost_flame a {
-  text-decoration: none; /*リンクの下線を*/
+  text-decoration: none; /*リンクの下線を消す*/
   color: #000;
 }
-/*新規投稿ページ*/
+
+.image_new{
+  width: 100%;
+  max-width: 210px;
+  height: 150px;
+}
+/*新規投稿フォームページ*/
 .post_form{
   padding: 0.2em 0.5em;
   margin: 2em 0;
@@ -101,14 +130,20 @@ li {
   box-shadow: 0px 0px 0px 10px #e5d2c5;
   border: dashed 2px white;
   text-align: center;
-  width: 500px;
+  max-width: 500px;
+}
+.new-img {
+  width: 400px;
+  height: 300px;
+  object-fit: cover; /*ボックスが画像で埋まるようにリサイズ*/
 }
 
+/*こだわりタグチェック欄*/
 .form-check{
   width: 100px;
   height: 100px;
   display: inline-block;
-  width: calc(33% - 10px);
+  width: calc(33% - 10px); /*３個ずつ均等に並べる*/
 }
 
 input[type="text"] {
@@ -131,7 +166,7 @@ text_area{
   width:300px;
   height:200px;
 }
-
+/*検索ボタン*/
 .btn01 {
   background-color:#efc3bd;
 }
@@ -198,7 +233,7 @@ h2 {
   border: dashed 2px white;
   box-shadow: 0px 0px 0px 10px #c8a08a;
 }
-
+/*投稿一覧ページ*/
 .pagination {
   justify-content: center;
 }
@@ -220,6 +255,12 @@ h2 {
   margin-right: 20px;
 }
 
+.image_index{
+  width: 280px;
+  height: 170px;
+  object-fit: cover;
+}
+/*投稿詳細ページ*/
 .post_show {
   padding: 0.2em 0.5em;
   margin: 2em 0;
@@ -228,53 +269,10 @@ h2 {
   border: dashed 2px white;
 }
 
-th {
-  white-space: nowrap; /*自動的な折り返しを禁止する*/
-}
-
-.plofile_image {
-  text-align: center;
-}
-
-.user_index{
-  padding: 0.2em 0.5em;
-  margin: 2em 0;
-  background: #e5d2c5;
-  box-shadow: 0px 0px 0px 10px #e5d2c5;
-  border: dashed 2px white;
-  text-align: center;
-}
-
-footer {
-  background-color: #300;
-  width: 100%;
-  height: 120px;
-  text-align: center;
-  color: white;
-}
-
-footer a {
-  margin: 10px;
-}
-
 .user_post{
   width: 100%;
   max-width: 40px;
   height: 40px;
-  border-radius: 50%;
-}
-
-.plofile_index{
-  width: 100%;
-  max-width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
-
-.user_image{
-  width: 100%;
-  max-width: 150px;
-  height: 150px;
   border-radius: 50%;
 }
 
@@ -285,27 +283,37 @@ footer a {
   max-height: 400px;
 }
 
-.image_new{
+/*ユーザ一覧ページ*/
+.user_index{
+  padding: 0.2em 0.5em;
+  margin: 2em 0;
+  background: #e5d2c5;
+  box-shadow: 0px 0px 0px 10px #e5d2c5;
+  border: dashed 2px white;
+  text-align: center;
+}
+
+.plofile_index{
   width: 100%;
-  max-width: 210px;
+  max-width: 100px;
+  border-radius: 50%;
+}
+/*チャット一覧ページ*/
+.user_image{
+  width: 100%;
+  max-width: 150px;
   height: 150px;
+  border-radius: 50%;
 }
-
-.image_index{
-  width: 100%;
-  width: 250px;
-  height: 160px;
+/*マイページ*/
+.plofile_image {
+  text-align: center;
 }
-
-.new-img{
-  width: 400px;
-  object-fit: cover;
-}
+/*チャットページ*/
 /*自分のメッセージ（右側）*/
 .my-message {
  text-align: right;
 }
-
 // メッセージの装飾
 .my-message p {
   display: inline-block;
@@ -318,7 +326,6 @@ footer a {
   font-size: 14px;
   text-align: left;
 }
-
 // 吹き出しに使う三角のパーツ
 // afterでメッセージに装飾をつける
 .my-message p:after {
