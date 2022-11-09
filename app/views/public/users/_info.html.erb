@@ -43,7 +43,7 @@
     <i class="fas fa-heart"></i>いいねした投稿 (<%= user.likes.count %>)
   <% end %>
   <% if user == current_user%>
-    <%=link_to draft_index_path(user),class: 'mt-2 btn btn-outline-info w-100' do %>
+    <%=link_to user_draft_index_path(user),class: 'mt-2 btn btn-outline-info w-100' do %>
       <i class="fas fa-lock"></i> 下書き投稿 (<%= current_user.posts.draft.count %>)
     <% end %>
     <%= link_to  user_chat_rooms_path(current_user), class: 'mt-2 btn btn-outline-secondary w-100'  do %>

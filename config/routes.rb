@@ -36,6 +36,8 @@ Rails.application.routes.draw do
       get "followers" => "relationships#followers", as: "followers"
       # チャット一覧
       get "chat_rooms"
+      #下書き機能
+      get "draft_index" => "posts#draft_index"
       member do
       get :likes
     end
@@ -52,8 +54,7 @@ Rails.application.routes.draw do
     get "user/unsubscribe" => "users#unsubscribe"
     #ユーザ退会処理
     patch "user/withdraw" => "users#withdraw"
-    #下書き機能
-    get "draft_index" => "posts#draft_index"
+   
     #キーワード検索
     get 'search' => 'searches#search'
     # タグ検索結果ページ
