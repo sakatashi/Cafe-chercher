@@ -7,6 +7,10 @@
 li {
   white-space: nowrap; /*自動的な折り返しを禁止する*/
 }
+td {
+  white-space: nowrap;
+}
+
 .login {
 　padding: 0.2em 0.5em;
   margin: 2em 0;
@@ -101,7 +105,7 @@ li {
   box-shadow: 0px 0px 0px 10px #e5d2c5;
   border: dashed 2px white;
   text-align: center;
-  width: 500px;
+  max-width: 500px;
 }
 
 .form-check{
@@ -267,7 +271,6 @@ footer a {
 .plofile_index{
   width: 100%;
   max-width: 100px;
-  height: 100px;
   border-radius: 50%;
 }
 
