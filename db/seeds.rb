@@ -50,7 +50,7 @@ Post.create!(
       shop_place: "尾道駅",
       shop_holiday: "不定休",
       shop_price: "1000~1999",
-      is_draft: 0,
+      is_draft: 1,
       lat: "34.4069763",
       lng: "133.1975454" },
 
@@ -64,7 +64,7 @@ Post.create!(
       shop_place: "吉祥寺駅から徒歩３分",
       shop_holiday: "無休",
       shop_price: "1000~1999",
-      is_draft: 0,
+      is_draft: 1,
       lat: "35.7041899",
       lng: "139.5782272" },
 
@@ -78,7 +78,7 @@ Post.create!(
       shop_place: "越生駅からバス",
       shop_holiday: "木・金・土",
       shop_price: "1000~1999",
-      is_draft: 0,
+      is_draft: 1,
       lat: "35.9646409",
       lng: "139.262682" },
 
@@ -89,7 +89,7 @@ Post.create!(
       shop_name: "CAFE Neul(カフェ ヌル）",
       content: "韓国カフェ",
       user_id: users[0].id,
-      is_draft: 1
+      is_draft: 0
     }
   ]
 )
