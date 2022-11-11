@@ -20,7 +20,9 @@
 * カフェのおすすめを共有したい時
 
 ## 設計書
-### ER図
+* [ER図](https://drive.google.com/file/d/1U2vlaYbV8dtzulOycnGsGRrndW_whxO9/view?usp=sharing)
+* [テーブル定義書](https://docs.google.com/spreadsheets/d/1R3xe3A543_Rpeak_VXyhdeI4lgGNi4HfnocK_EDj3CE/edit?usp=sharing)
+* [アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/1IFdPa-UBBcJGjiCecskdx5WjhmO5lgkrAQzVsqEEBmg/edit?usp=sharing)
 
 
 ## 開発環境
