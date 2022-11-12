@@ -24,7 +24,6 @@
 * [テーブル定義書](https://docs.google.com/spreadsheets/d/1R3xe3A543_Rpeak_VXyhdeI4lgGNi4HfnocK_EDj3CE/edit?usp=sharing)
 * [アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/1IFdPa-UBBcJGjiCecskdx5WjhmO5lgkrAQzVsqEEBmg/edit?usp=sharing)
 
-
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
