@@ -225,3 +225,15 @@ Chat.create!(
     }
   ]
 )
+
+#通知
+Notification.create!(
+  [
+    { visitor_id: 2,
+      visited_id: 1,
+      post_id: 1,
+      action: "like",
+      checked: false,
+    }
+  ]
+)
