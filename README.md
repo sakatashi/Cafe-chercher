@@ -31,6 +31,16 @@
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
+## 利用ガイド
+### ポートフォリオ閲覧用アカウント
+**ユーザ側**
+
+メールアドレス：piyo@test.com　　パスワード：password
+
+**管理者側**
+
+メールアドレス：admin@com パスワード：admincafe
+
 ## 使用素材
 * 画像素材(https://www.photo-ac.com/)
 * ロゴ素材(https://www.canva.com/)
