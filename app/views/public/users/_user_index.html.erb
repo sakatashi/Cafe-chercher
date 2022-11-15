@@ -4,8 +4,6 @@
       <tr class="text-center">
         <th>image</th>
         <th>name</th>
-        <th>follow</th>
-        <th>follower</th>
         <th colspan="2"></th>
       </tr>
     </thead>
@@ -15,8 +13,6 @@
       <% if user.status == false %>
         <td><%= image_tag user.get_image,class: "plofile_index" %></td>
         <td><%= user.name %></td>
-        <td><%= user.followings.count %></td>
-        <td><%= user.followers.count %></td>
         <td>
           <% if current_user != user %>
            <% if current_user.following?(user) %>
