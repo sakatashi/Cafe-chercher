@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-12 text-center">
-      <h2>Cafe_chercherって？ </h2>
+      <h2><strong>Cafe_chercherって？ </strong></h2>
       <div class="about_info">
        <%= image_tag 'about_image.jpg' %>
         <p>このサイトはカフェの投稿ができたり、<br>
@@ -9,24 +9,24 @@
            カフェ好きさんと繋がることができるサイトです！
         </p>
       </div>
-      <h3>Cafe_chercherで出来ること</h3>
+      <h3><strong>Cafe_chercherで出来ること</strong></h3>
       <div class="example">
         <div class="example1">
          <h5><strong><i class="fas fa-pencil-alt"></i>カフェを投稿できる</strong></h5>
          <p>カフェを投稿することで共有できる！</p>
          <p>投稿してみよう！</p>
-         <%= link_to 'カフェを投稿する',new_post_path,class: 'btn btn-secondary' %>
+         <%= link_to 'カフェを投稿する',new_post_path,class: 'btn btn-outline-secondary w-75' %>
         </div>
         <div class="example2">
          <h5><strong><i class="fas fa-search"></i>カフェの検索ができる</strong></h5>
          <p>まだ知らぬカフェを知ることができる！</p>
          <p>みんなの投稿を見てみよう！</p>
-         <%= link_to 'カフェを見る',posts_path,class: 'btn btn-secondary' %>
+         <%= link_to 'カフェを見る',posts_path,class: 'btn btn-outline-secondary w-75' %>
         </div>
         <div class="example3">
          <h5><strong><i class="fas fa-users"></i>カフェ好きさんと繋がれる</strong></h5>
          <p>カフェ好き同士で会話してみよう！</p>
-         <%= link_to '登録ユーザーを見る',users_path,class: 'btn btn-secondary' %>
+         <%= link_to '登録ユーザーを見る',users_path,class: 'btn btn-outline-secondary w-75' %>
         </div>
       </div>
     </div>
