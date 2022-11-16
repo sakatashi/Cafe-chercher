@@ -421,6 +421,11 @@ h2 {
   border: dashed 2px white;
 }
 
+.table {
+width: 100%;          /* 幅を明確に指定 */
+table-layout: fixed; /* 固定レイアウト */
+}
+
 /*画面幅によって文字サイズ変更*/
 html {
   font-size: 75%;
