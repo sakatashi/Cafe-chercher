@@ -33,6 +33,8 @@
 
 ## 利用ガイド
 ### ポートフォリオ閲覧用アカウント
+**サイトURL** : [Cafe_chercher](http://cafe-chercher.com/)
+
 **ユーザ側**
 
 メールアドレス：piyo@test.com　　パスワード：password
