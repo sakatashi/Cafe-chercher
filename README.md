@@ -1,5 +1,5 @@
 # ![logo](https://user-images.githubusercontent.com/109025282/197979880-b7c6480b-0905-4416-8591-50927bd67a03.jpg)
-
+**サイトURL** :https://cafe-chercher.com/
 ## サイト概要
 
 ### サイトテーマ
@@ -33,7 +33,6 @@
 
 ## 利用ガイド
 ### ポートフォリオ閲覧用アカウント
-**サイトURL** : [Cafe_chercher](http://cafe-chercher.com/)
 
 **ユーザ側**
 
