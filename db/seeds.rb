@@ -58,7 +58,7 @@ Post.create!(
     { title: "老舗の喫茶店発見！",
       image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-post2.JPG"),
       filename: "sample-post2.jpg"),
-      content: "地下を下ると洞窟のような空間がありました！\r\n\r\n人気のお店で少し並びました！\r\n店内の雰囲気が良く、\r\nレアチーズケーキ美味 しかったです！\r\n\r\n#東京カフェ#吉祥寺カフェ#洞窟#喫茶店",
+      content: "地下を下ると洞窟のような空間がありました！\r\n\r\n人気のお店で少し並びました！\r\n店内の雰囲気が良く、\r\nレアチーズケーキ美味しかったです！\r\n\r\n#東京カフェ#吉祥寺カフェ#洞窟#喫茶店",
       user_id: users[1].id,
       shop_name: "COFFEE HALL くぐつ草",
       shop_place: "吉祥寺駅から徒歩３分",

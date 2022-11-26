@@ -11,6 +11,7 @@
       <p><i class="far fa-comment-alt"></i><%= link_to " #{post.comments.count} ", post_path(post.id) %>
         &nbsp;<i class="far fa-heart"></i><%= link_to " #{post.likes.count} ", post_path(post.id) %>
       </p>
+      <p class="small"><%= l post.created_at %></p>
      </div>
    <% end %>
   <% end %>
