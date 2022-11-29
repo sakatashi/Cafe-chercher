@@ -1,5 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_current_user, only: [:edit, :update,:destroy]
   before_action :post_choice, only: [:show, :map_edit, :update, :destroy]
 
   def new
@@ -89,5 +90,12 @@ class Public::PostsController < ApplicationController
   private
   def post_params
   params.require(:post).permit(:user_id, :title, :content, :shop_name, :shop_place, :shop_holiday, :shop_price, :is_draft, :image, :lat, :lng, shop_tag_ids:[])
+  end
+
+  def ensure_current_user
+    @post = Post.find(params[:id])
+    unless @post.user == current_user
+      redirect_to posts_path
+    end
   end
 end

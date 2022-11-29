@@ -6,8 +6,11 @@ class Public::CommentsController < ApplicationController
     @comment = current_user.comments.new(comment_params)
     @comment.post_id = @post.id
     @comment.score = Language.get_data(comment_params[:comment])
-    @comment.save
-    @post.create_notification_comment!(current_user, @comment.id)
+    if @comment.save
+      @post.create_notification_comment!(current_user, @comment.id)
+    else
+      redirect_to post_path(@post), alert: "入力内容をご確認ください。"
+    end
     @comment = Comment.new
   end
 
