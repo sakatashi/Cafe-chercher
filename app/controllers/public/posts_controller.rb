@@ -1,6 +1,7 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_current_user, only: [:edit, :update,:destroy]
+  before_action :edit_current_user, only: [:map_edit]
   before_action :post_choice, only: [:show, :map_edit, :update, :destroy]
 
   def new
@@ -98,4 +99,12 @@ class Public::PostsController < ApplicationController
       redirect_to posts_path
     end
   end
+  
+  def edit_current_user
+    @post = Post.find(params[:post_id])
+    unless @post.user == current_user
+      redirect_to posts_path
+    end
+  end
+  
 end
