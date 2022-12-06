@@ -85,7 +85,7 @@
       <% if post.user == current_user %>
        <p class="text-right"><%= link_to "地図を編集する",post_map_edit_path(post), data: {"turbolinks" => false},class: "btn btn-primary" %></p>
        <%= link_to '編集', edit_post_path, class: 'btn btn-primary w-50'%>
-     
+      <% end %>
     </div>
     <div class="line-it-button" data-lang="ja" data-type="share-b" data-env="REAL" data-url="http://cafe-chercher.com/" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
     <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
