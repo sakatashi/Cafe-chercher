@@ -31,16 +31,26 @@
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
-## 利用ガイド
-### ポートフォリオ閲覧用アカウント
+## 使用gem
+**ログイン**
+* devise
 
-**ユーザ側**
+**レイアウト**
+* bootstrap
+* kaminari
 
-メールアドレス：piyo@test.com　　パスワード：password
+**デバック**
+* byebug
+* pry-rails
 
-**管理者側**
+**デプロイ**
+* mysql2
 
-メールアドレス：admin@com パスワード：admincafe
+**その他**
+* rails-i18n
+* enum_help
+* dotenv-rails
+
 
 ## 使用素材
 * 画像素材(https://www.photo-ac.com/)
