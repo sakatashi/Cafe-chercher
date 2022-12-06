@@ -1,0 +1,51 @@
+<%= form_with model: post do |f| %>
+<div class="post_form">
+  <i class="fas fa-camera"></i> <%= f.label :image,"画像を選択する" %><br>
+  <div class="form-group">
+  <%= f.file_field :image %>
+  </div>
+  <div id="new-image"></div>
+  <i class="fas fa-tag"></i> <%= f.label :title,"タイトル" %><br>
+  <%= f.text_field :title, placeholder: "タイトルを入力" %><br>
+  <i class="far fa-file-alt"></i> <%= f.label :content,"本文 (#をつけるとタグになります）" %><br>
+  <%= f.text_area :content, placeholder: "本文を入力 \r\n#タグ",:size=>"35x5" %><br>
+  <i class="fas fa-store"></i> <%= f.label :shop_name,"カフェ名" %><br>
+  <%= f.text_field :shop_name, placeholder: "カフェ名を入力" %><br>
+</div>
+<div class="post_form">
+<h5><i class="fas fa-store"></i> 店舗情報</h5>
+
+  <i class="fas fa-map-marker-alt"></i> <%= f.label :shop_place,"アクセス" %><br>
+  <%= f.text_field :shop_place,placeholder: "最寄駅から徒歩何分など" %><br>
+
+  <i class="fas fa-store-slash"></i> <%= f.label :shop_holiday,"定休日" %><br>
+  <%= f.text_field :shop_holiday,placeholder: "不定休・無休・月火水木金土日"%><br>
+
+  <i class="fas fa-yen-sign"></i> <%= f.label :shop_price,"平均予算" %><br>
+  <%= f.collection_radio_buttons :shop_price,Post.shop_prices_i18n, :first,:last%><br>
+
+  <div class='form-group'>
+    <i class="far fa-star"></i> <%= f.label :shop_tag_ids,'こだわり（当てはまるものにチェック)' %><br>
+    <%= f.collection_check_boxes(:shop_tag_ids, ShopTag.all, :id, :name) do |tag| %>
+    <div class='form-check'>
+      <%= tag.label class: 'form-check-label' do %>
+      <%= tag.check_box class: 'form-check-input' %>
+      <%= tag.text %>
+      <% end %>
+    </div>
+      <% end %>
+  </div>
+  <p>※ 地図登録の編集は、</p>
+  <p>詳細ページの「地図を編集する」から行ってください。</p>
+  <div class="form-group">
+    <i class="fas fa-pencil-alt"></i> <%= f.label :is_draft,"下書き/投稿" %><br>
+    <%= f.select :is_draft, Post.is_drafts.keys.map { |k| [t("enums.post.is_draft.#{k}"),k]}, {}, {class: "custom-select w-50"} %>
+  </div><br>
+  <div>
+  <%= f.submit "変更する", class: "btn btn-success w-50" %>
+  <% if @post.user == current_user %>
+    <%= link_to '削除', post, method: :delete, data: {confirm: "投稿を削除します。よろしいですか？"},class: 'btn btn-danger w-25'%>
+  <% end %>
+<% end %>
+  </div>
+</div>

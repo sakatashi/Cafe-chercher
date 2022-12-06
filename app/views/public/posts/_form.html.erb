@@ -118,7 +118,7 @@
     <%= f.select :is_draft, Post.is_drafts.keys.map { |k| [t("enums.post.is_draft.#{k}"),k]}, {}, {class: "custom-select w-50"} %>
   </div><br>
   <div>
-  <%= f.submit submit, class: "btn btn-success w-50" %>
+  <%= f.submit "投稿する", class: "btn btn-success w-50" %>
   <% if @post.user == current_user %>
     <%= link_to '削除', post, method: :delete, data: {confirm: "投稿を削除します。よろしいですか？"},class: 'btn btn-danger w-25'%>
   <% end %>
